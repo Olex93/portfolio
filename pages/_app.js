@@ -1,7 +1,103 @@
+import React from 'react';
 import '../styles/globals.css'
+import { motion , AnimatePresence} from 'framer-motion';
+import CustomDrawer from "../components/Drawer"
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+
+
+function MyApp({ Component, pageProps, router }) {
+
+
+  const [theme, setTheme] = React.useState("dark")
+
+  const [color, setColor] =  React.useState(
+    {
+      highlightColor:"rgb(224,128,49)",
+      backgroundColor:"rgb(34,44,52)",
+      textColor:"rgb(232,232,232)",
+      lightBG:"rgb(74,85,94)",
+      darkBG:"rgb(0,0,13)",
+      opaqueBG:"rgba(0,0,13,0.9)"
+    });
+
+  function changeColor(newColor){
+    
+      if (newColor === "dark"){
+        setColor(
+         {
+           ...color,
+          backgroundColor:"rgb(34,44,52)",
+          textColor:"rgb(232,232,232)",
+          lightBG:"rgb(74,85,94)",
+          darkBG:"rgb(0,0,13)",
+          opaqueBG:"rgba(0,0,13,0.9)"
+        })
+        setTheme("dark")
+      }
+      if (newColor === "light"){
+        setColor(
+         {
+           ...color,
+          backgroundColor:"rgb(232,232,232)",
+          lightBG:"rgb(255,255,255)",
+          textColor:"rgb(34,44,52)",
+          darkBG:"rgb(182,182,182)",
+          opaqueBG:"rgba(182,182,182,0.8)"
+        })
+        setTheme("light")
+      }
+      if (newColor === "purple"){
+        setColor(
+         {
+           ...color,
+          highlightColor:"rgb(128,93,201)"
+        })
+      }
+      if (newColor === "green"){
+        setColor(
+         {
+           ...color,
+           highlightColor:"rgb(87,190,106)"
+        })
+      }
+      if (newColor === "orange"){
+        setColor(
+         {
+           ...color,
+           highlightColor:"rgb(224,128,49)"
+        })
+      }
+      if (newColor === "blue"){
+        setColor(
+         {
+           ...color,
+           highlightColor:"rgb(77,128,255)"
+        })
+      }
+    }
+
+
+    const spring = {
+      type: "spring",
+      damping: 20,
+      stiffness: 100
+    };
+  
+    return (
+          <div>
+            <CustomDrawer color={color} changeColor={changeColor}/>
+              <motion.div
+                transition={spring}
+                key={router.route}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{opacity: 0 }}
+                id="page-transition-container"
+              >
+            <Component {...pageProps}  key={router.route} theme={theme} color={color} changeColor={changeColor}/>
+          </motion.div>
+          </div>
+    );
 }
 
 export default MyApp
