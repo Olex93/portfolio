@@ -2,13 +2,11 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 
 const theme = createMuiTheme({
-  overrides:{
-    MuiPaper: {
-      root:{
-        backgroundColor: "red"
-      }
-    },
-  }
+  typography: {
+    fontFamily: [
+      'Poppins',
+    ].join(','),
+  },
 });
 
 export default theme

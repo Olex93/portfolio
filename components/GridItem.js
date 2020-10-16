@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import SpringDivider from "../components/SpringDivider"
 
 export default function GridItem(props) {
@@ -34,7 +34,8 @@ export default function GridItem(props) {
             fontSize:"18px",
             fontWeight:"700",
             borderRadius:"3px",
-            boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`
+            boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+            cursor: "pointer"
         },
     }
     const itemText = props.item.text.substring(0,100) + "...";
@@ -43,17 +44,30 @@ export default function GridItem(props) {
     <div>
         <motion.div style={{ margin: "20px"}} layout>
         <motion.div
-            layout
-            initial={{opacity:0}}
-            animate={{opacity:1}}
             style={styles.itemBox}
+            whileHover={{
+                boxShadow:`5px 5px 12px -6px ${props.color.darkBG}`,
+                transition: {
+                    duration: .2
+                    }
+                }}
         >   
         <div style={styles.imageDiv} />
-            <motion.h2 layout>{props.item.heading}</motion.h2>
+            <motion.h2 >{props.item.heading}</motion.h2>
             <SpringDivider color={props.color} width={"90%"} dividerBG={props.color.lightBG}/>
         <div style={styles.paragraph}>
-            <motion.p layout>{itemText}</motion.p>
-            <button onClick={() => props.triggerLightbox(props.item)} style={styles.button}>Expand</button>
+            <motion.p >{itemText}</motion.p>
+            <motion.button
+            whileHover={{
+                scale: 1.2,
+                backgroundColor:props.color.highlightColor,
+                color: props.color.backgroundColor,
+                transition: {
+                    duration: .2
+                    }
+                }}
+                 onClick={() => props.triggerLightbox(props.item)} style={styles.button}>Expand
+            </motion.button>
         </div>
         </motion.div>
         </motion.div>

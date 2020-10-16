@@ -17,7 +17,7 @@ export default function CustomAvatar(props){
     const classes = useStyles();
 
     return(
-        <motion.div className="card" 
+        <motion.div style={{backgroundColor:props.backgroundColor, border:"none"}}  
             initial={{
                 opacity:0,
                 scale:0
@@ -30,9 +30,9 @@ export default function CustomAvatar(props){
                 scale: 1.2,
                 transition: {
                 duration: .2
-            }}
+            }} 
         }>
-            <Avatar className={classes.customAvatar} div style={{border: `2px solid ${props.highlightColor}`}} circle src={"/images/Head.png"}/>
+            <Avatar className={classes.customAvatar} div style={{border: `2px solid ${props.highlightColor}`, backgroundColor:props.backgroundColor}} circle src={"/images/Head.png"}/>
         </motion.div>
     )
 }

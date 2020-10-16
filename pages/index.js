@@ -1,10 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import { motion } from "framer-motion";
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
+import { motion, AnimatePresence } from "framer-motion";
 import Blobs from "../components/blobs"
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+
 
 export default function Home(props) {
 
@@ -12,14 +13,15 @@ export default function Home(props) {
     CustomBody: {
       height:"100vh",
       width:"100%",
-      paddingLeft:"240px"
+      paddingLeft:"240px",
+      backgroundColor:props.color.backgroundColor,
     },
     outerBody: {
       width:"100%",
       height:"100%",
       overflow: "hidden",
+      zIndex:"-2",
       backgroundColor:props.color.backgroundColor,
-      zIndex:"-2"
     },
     innerBody:{
         width: "100%",
@@ -30,7 +32,8 @@ export default function Home(props) {
         justifyContent: "center",
         alignItems: "center",
         textAlign:"center",
-        zIndex:"99"
+        zIndex:"99",
+        backgroundColor:props.color.backgroundColor,
     },
     customHeading: {
         fontSize:"7vw",
@@ -48,41 +51,40 @@ export default function Home(props) {
       display:"flex"
     },
     divider:{
-        width: '1px',
-        border: `1px solid ${props.color.highlightColor}`,
-        color: props.color.highlightColor,
-        height:"17px",
-        margin:"0 5px 5px 5px"
+      width: '1px',
+      border: `1px solid ${props.color.highlightColor}`,
+      color: props.color.highlightColor,
+      height:"17px",
+      margin:"0 5px 5px 5px"
+    }
   }
-}
 
-const list = {
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.1,
-    },
-  },
-  hidden: {
-    opacity: 0,
-    transition: {
-      when: "afterChildren",
-    },
-  },
-}
+  const handleClick = function(color){
+    props.changeColor(color);
+  }
 
-const item = {
+  const list = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+      },
+    },
+  }
+  const item = {
     visible: { 
       opacity: 1 
     },
     hidden: {
-       opacity: 0 
+      opacity: 0 
     },
-}
-
-  const handleClick = function(color){
-    props.changeColor(color);
   }
 
   return (
@@ -90,7 +92,9 @@ const item = {
     <Head>
       <title>Alex Foster - Web Development Portfolio</title>
     </Head>
-    <Blobs />
+    <AnimatePresence>
+      <Blobs />
+    </AnimatePresence>
       <div style={styles.CustomBody}>
         <div style={styles.outerBody}>
           <div style={styles.innerBody}>
@@ -106,19 +110,20 @@ const item = {
               style={{paddingLeft:"0"}}
             >
               <Grid container alignItems="center">
-             
+                
                 {props.theme === "light" ?
-                  <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("dark")} style={{color:"#222C34"}}/></motion.div>
-                    :
-                  <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("light")} style={{color:"#e8e8e8"}}/></motion.div>
-                  }
-                  <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><Divider orientation="vertical" flexItem style={styles.divider}/></motion.div>
-                  <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("purple")} style={{color:"#805DC9"}}/></motion.div>
-                  <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("green")} style={{color:"#57BE6A"}}/></motion.div>
-                  <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("orange")} style={{color:"#E08031"}}/></motion.div>
-                  <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("blue")} style={{color:"#4D80FF"}}/></motion.div>
+                    <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("dark")} style={{color:"#222C34"}}/></motion.div>
+                        :
+                    <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("light")} style={{color:"#e8e8e8"}}/></motion.div>
+                }
+                    <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><Divider orientation="vertical" flexItem style={styles.divider}/></motion.div>
+                    <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("purple")} style={{color:"#805DC9"}}/></motion.div>
+                    <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("green")} style={{color:"#57BE6A"}}/></motion.div>
+                    <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("orange")} style={{color:"#E08031"}}/></motion.div>
+                    <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("blue")} style={{color:"#4D80FF"}}/></motion.div>
+    
+            </Grid>
 
-              </Grid>
             </motion.ul>
             </div>
                 

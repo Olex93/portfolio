@@ -6,7 +6,7 @@ const itemsList = [
         text:"In order to display my work and demonstrate my skills, it became apparent that I would need a portfolio website. To that end, I designed and built this website from scratch. I decided to go with Next.js because of it's quick setup time, the ability to easly build universal SPA's and my familiarity with the software",
         key:1,
         category:"personal",
-        tags:["React.js", "Next.js", "Framer Motion", "Babel", "Material UI", "Nodemailer", "CSS & CSS in js", "Node.js & NPM", "Terminal & CLI", "Git & GitHub", "Heroku", "Photoshop, Canva & Wireframing tools"],
+        tags:["React.js", "Next.js", "Framer Motion", "Babel", "Material UI", "Nodemailer", "CSS & CSS in js", "Node.js", "Terminal & CLI", "Git & GitHub", "Heroku", "Photoshop, Canva & Wireframing tools"],
         date:"September 2020",
         image:"url(/images/portfolio.png)",
         organisation:"Self directed build",
@@ -36,7 +36,7 @@ const itemsList = [
         date:"July 2020 & August 2016",
         image:"url(/images/ftl_loop.gif)",
         organisation:"Local Dog Walking Business",
-        url:"www.findthelead.co.uk",
+        url:"https://www.findthelead.co.uk",
         codeSandbox:null
     },
     {
@@ -49,7 +49,7 @@ const itemsList = [
         date:"April 2020",
         image:"url(/images/fittaf_loop.gif)",
         organisation:"Online PT Business",
-        url:"www.fittaf.com",
+        url:"https://www.fittaf.com",
         codeSandbox:null
     },
     {
@@ -72,7 +72,7 @@ const itemsList = [
         key:6,
         category:"personal",
         tags:["Javascript ES6", "HTML", "CSS"],
-        date:"September 2020",
+        date:"November 2010",
         image:"url(/images/js_simon_game.png)",
         organisation:"Self directed build",
         url:null,
@@ -84,7 +84,7 @@ const itemsList = [
         key:6,
         category:"personal",
         tags:["HTML", "CSS", "Bootstrap"],
-        date:"September 2020",
+        date:"March 2019",
         image:"url(/images/tindog.png)",
         organisation:"Self directed build",
         url:null,
@@ -100,7 +100,7 @@ const itemsList = [
         date:"November 2017 - Present",
         image:"url(/images/vpi_homepage.png)",
         organisation:"International Market Research & Video Production Agency",
-        url:"www.voxpops.com",
+        url:"https://www.voxpops.com",
         codeSandbox:null
     },
     {
@@ -112,9 +112,9 @@ const itemsList = [
         date:"October 2017",
         image:"url(/images/trn_homepage.png)",
         organisation:"Commercial Electrical Services Business",
-        url:"https://www.findthelead.co.uk",
-        codeSandbox:null
-
+        url:"http://trnelectrical.com/",
+        codeSandbox:null,
+        tags:["Wordpress", "X Theme", "Cornerstone", "Vanilla JS", "CSS", "Advanced Custom Fields", "Yoast"],
     }
 ]
 

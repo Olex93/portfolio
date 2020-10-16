@@ -64,7 +64,7 @@ export default function Lightbox(props){
 
     return(
         <div style={style.lightboxBG}>
-            <div style={style.outerContainer}>
+            <div style={style.outerContainer} onClick={() => props.closeLightbox()}>
                 <div style={style.innerContainer}>
                     <div style={style.imgDiv} />
                     <div style={style.headingDiv}>

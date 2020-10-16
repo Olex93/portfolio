@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/globals.css'
-import { motion , AnimatePresence} from 'framer-motion';
+import { motion } from 'framer-motion';
 import CustomDrawer from "../components/Drawer"
-
+import Head from 'next/head'
 
 
 function MyApp({ Component, pageProps, router }) {
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps, router }) {
           backgroundColor:"rgb(232,232,232)",
           lightBG:"rgb(255,255,255)",
           textColor:"rgb(34,44,52)",
-          darkBG:"rgb(182,182,182)",
+          darkBG:"#a2a2a2",
           opaqueBG:"rgba(182,182,182,0.8)"
         })
         setTheme("light")
@@ -84,19 +84,23 @@ function MyApp({ Component, pageProps, router }) {
     };
   
     return (
-          <div>
+      <div>
+          <Head>
+
+          </Head>
+          <div style={{backgroundColor:color.backgroundColor}}>
             <CustomDrawer color={color} changeColor={changeColor}/>
               <motion.div
-                transition={spring}
+                transition={{ type: "spring", duration: 2}}
                 key={router.route}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{opacity: 0 }}
+                initial={{marginRight:"200px"}}
+                animate={{marginRight:"0px"}}
                 id="page-transition-container"
               >
             <Component {...pageProps}  key={router.route} theme={theme} color={color} changeColor={changeColor}/>
           </motion.div>
           </div>
+      </div>
     );
 }
 

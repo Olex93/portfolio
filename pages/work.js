@@ -1,22 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
-import { motion, AnimateSharedLayout } from "framer-motion";
+import { motion } from "framer-motion";
 import GridItem from "../components/GridItem"
 import itemsList from "../components/ItemsList"
 import SpringDivider from "../components/SpringDivider"
 import Lightbox from "../components/Lightbox"
-import tagsList from "../components/tagsList"
+import ColorSelect from "../components/colorSelect"
+
 
 export default function work(props) {
 
-    const [buttonStyle, setButtonStyle] = React.useState({
-        backgroundColor: props.color.lightBG,
-        textColor: props.color.textColor
-    })
-
-        const styles = {
+    const styles = {
             paddedBody:{
-                paddingLeft:"240px",
+                marginLeft:"240px",
+                padding:"0 30px",
                 textAlign:"center",
                 overflow:"hidden",
                 backgroundColor:props.color.backgroundColor,
@@ -24,7 +21,7 @@ export default function work(props) {
             },
             gridContainer:{
                 alignItems:"center",
-                padding:"30px 0"
+                padding:"30px"
             },
             grid:{
                 display:"flex",
@@ -33,8 +30,20 @@ export default function work(props) {
                 justifyContent:"center"
             },
             GridButton:{
-                backgroundColor:buttonStyle.backgroundColor,
-                color:buttonStyle.textColor,
+                backgroundColor:props.color.lightBG,
+                color:props.color.textColor,
+                margin:"5px",
+                border:"none",
+                padding:"5px 10px",
+                fontSize:"18px",
+                fontWeight:"700",
+                borderRadius:"3px",
+                boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+                cursor:"pointer"
+            },
+            highlightButton:{
+                backgroundColor:props.color.highlightColor,
+                color:props.color.textColor,
                 margin:"5px",
                 border:"none",
                 padding:"5px 10px",
@@ -50,62 +59,48 @@ export default function work(props) {
             }
         }
     
-    // filter functionality based on tags
-    // make items list stateful
-    const [items, setItems] = React.useState(itemsList)
+    const corporate = itemsList.filter(item =>{
+        return item.category === "corporate"
+       })
+    
+    const personal = itemsList.filter(item =>{
+        return item.category === "personal"
+       })
+
+    const all = itemsList
+
+    // // make items list stateful
+    const [items, setItems] = React.useState(all)
+
+    
     // Set which items are contained within items by filtering through itemsList based on the tag which was selected
-    function updateItems(clickedCategory){
-        if (clickedCategory !== "all"){
-            setItems(
-                itemsList.filter(item =>{
-                 return item.category === clickedCategory
-                })
-             )
+    function updateItems(e){
+        if (e.target.id === "corporate"){
+            setItems(corporate)
         }
-        if (clickedCategory === "all"){
-            setItems(itemsList)
+        if (e.target.id === "personal"){
+            setItems(personal)
+        }
+        if (e.target.id === "all"){
+            setItems(all)
         }
     }
-
-
-    // need to have an array of tags that are selected
-    // when a button is clicked, check if the clickedTag is present in the array, 
-    // if not in array, higlight that button and push, 
-    // if in array, unhighlight that button and remove 
-    // // filter functionality based on tags
-    // const [clicked, setClicked] = React.useState([1,2])
     
-
-    // function clickTag(key){
-
-    //     //if value us already in the array
-    //     if(clicked.indexOf(key) !== -1){
-
-    //         //identify the index of the clicked item
-    //         var index = clicked.indexOf(key)
-
-    //         //create new array and  splice the new item off of it
-    //         var newArray = clicked.splice(index, 1)
-
-    //         //set clicked to equal the new array
-    //         setClicked(
-    //             newArray
-    //         )
-    //         console.log(clicked)
-    //     } 
-    //     //if value is not in the array already
-    //     if(clicked.indexOf(key) === -1){
-    //         setClicked([
-    //             ...clicked,
-    //             key
-    //         ]
-    //         )
-    //     }
-
-    // }
-
-
-
+    const list = {
+        visible: {
+          opacity: 1,
+          transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.1,
+          },
+        },
+        hidden: {
+          opacity: 0,
+          transition: {
+            when: "afterChildren",
+          },
+        },
+      }
 
     // set state for lightbox to be open or closed
     const [showLightbox, openLightbox] = React.useState(false)
@@ -139,37 +134,69 @@ export default function work(props) {
 
     return (
         <div style={styles.paddedBody}>
-            <div style={{paddingTop:"100px"}}>
+            <div style={{paddingTop:"80px"}}>
                 <h2 style={styles.filterHeading}>Venture:</h2>
-                <button style={styles.GridButton} onClick={() => updateItems("corporate")}>Corporate</button>
-                <button style={styles.GridButton} onClick={() => updateItems("personal")}>Personal</button>
-                <button style={styles.GridButton} onClick={() => updateItems("all")}>All</button>
+                <motion.button 
+                    id="corporate" 
+                    style={styles.GridButton} 
+                    onClick={(e) => updateItems(e)}
+                    whileHover={{
+                        scale: 1.1,
+                        backgroundColor:props.color.highlightColor,
+                        color: props.color.backgroundColor,
+                        transition: {
+                            duration: .2
+                            }
+                        }}
+                    >Corporate</motion.button>
+                <motion.button 
+                    id="personal" 
+                    style={styles.GridButton} 
+                    onClick={(e) => updateItems(e)}
+                    whileHover={{
+                        scale: 1.1,
+                        backgroundColor:props.color.highlightColor,
+                        color: props.color.backgroundColor,
+                        transition: {
+                            duration: .2
+                            }
+                        }}
+                    >Personal</motion.button>
+                <motion.button 
+                    id="all" style={styles.GridButton} 
+                    onClick={(e) => updateItems(e)}
+                    whileHover={{
+                        scale: 1.1,
+                        backgroundColor:props.color.highlightColor,
+                        color: props.color.backgroundColor,
+                        transition: {
+                            duration: .2
+                            }
+                        }}
+                    >All</motion.button>
             </div>
-            {/* <div>
-                <h2 style={styles.filterHeading}>Technology:</h2>
-                {tagsList.map((tag) => (
-                <button id={tag.key} style={styles.GridButton} onClick={e => clickTag(tag.key)}>{tag.text}</button>
-                ))}
-            </div> */}
             <div style={{margin:"30px auto 0"}}>
             <SpringDivider color={props.color} width={"10%"} dividerBG={props.color.backgroundColor}/>
             </div>
             <div style={styles.gridContainer}>
-                <AnimateSharedLayout>
-                    <motion.div
-                    style={styles.grid}
-                    layout
-                    >
-                        {items.map((item) => (
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                            <GridItem layout key={item.key} item={item} itemsList={itemsList} color={props.color} triggerLightbox={triggerLightbox} />
-                        </motion.div>
+            <motion.ul 
+                style={styles.grid}
+                initial="hidden"
+                animate="visible"
+                variants={list}
+            >
+                        {items.map((item, index) => (
+                            <motion.div 
+                                layout
+                                key={index}
+                                >
+                                <GridItem key={item.key} item={item} itemsList={itemsList} color={props.color} triggerLightbox={triggerLightbox} />
+                            </motion.div>
                         ))}
-                    </motion.div>
-                </AnimateSharedLayout>
+            </motion.ul>
                 {showLightbox === true && 
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                        <Lightbox color={props.color} item={lightboxItem}/>
+                        <Lightbox color={props.color} item={lightboxItem} closeLightbox={closeLightbox} />
                     </motion.div>
                 }
             </div>

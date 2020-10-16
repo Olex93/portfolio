@@ -104,12 +104,12 @@ export default function CustomDrawer(props) {
 
 
         <Divider className={classes.topDivider} style={{backgroundColor:props.color.highlightColor}}/>
-        <CustomAvatar  highlightColor={props.color.highlightColor} />
+        <Link href="/"><a><CustomAvatar  backgroundColor={props.color.lightBG} highlightColor={props.color.highlightColor} /></a></Link>
         <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG}/>
           <List>
               <ListItem button>
                 <ListItemIcon><InboxIcon style={customStyles.textColor}/></ListItemIcon>
-                <ListItemText style={customStyles.textColor} primary={"About Me"} />
+                <Link href="/about"><a><ListItemText style={customStyles.textColor} primary={"About Me"} /></a></Link>
               </ListItem>
               <ListItem button>
                 <ListItemIcon><InboxIcon style={customStyles.textColor}/></ListItemIcon>
@@ -165,7 +165,7 @@ export default function CustomDrawer(props) {
           </List>
           {/* Replace this with significant achievements testimonial carousel */}
           {shown ?  
-          <CustomAvatar highlightColor={props.color.highlightColor} /> : null}
+          <CustomAvatar backgroundColor={props.color.lightBG} highlightColor={props.color.highlightColor} /> : null}
           </div>
         </Drawer>
     </div>
