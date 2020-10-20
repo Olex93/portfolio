@@ -1,9 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import { motion } from "framer-motion";
+import { motion, AnimateSharedLayout } from "framer-motion";
 import classes from "../styles/about.module.css"
 import Carousel from 'nuka-carousel';
-
+import itemsList from "../components/ItemsList"
+import PostBlock from "../components/postBlock"
 
 export default function about(props) {
   const technologies = ["/images/codeLogos/react.svg", "/images/codeLogos/javascript.svg", "/images/codeLogos/html.svg", "/images/codeLogos/css.svg", "/images/codeLogos/next.svg", "/images/codeLogos/bootstrap.svg", "/images/codeLogos/github.svg", "/images/codeLogos/jquery.svg", "/images/codeLogos/mongodb.svg", "/images/codeLogos/node.svg", "/images/codeLogos/wordpress.svg", "/images/codeLogos/zoho.svg"]
@@ -63,7 +64,7 @@ export default function about(props) {
     },
     headings:{
       color:props.color.highlightColor,
-      fontSize:"1.3rem",
+      fontSize:"1.6rem",
       margin:"80px 10px 0 10px"
     },
     content:{
@@ -71,15 +72,19 @@ export default function about(props) {
       fontSize:"1.1rem",
       lineHeight:"145%",
       letterSpacing:"0.7px",
-      margin:"15px 10px"
+      margin:"15px 10px",
     },
     sliderImg:{
       maxWidth:"400px",
       padding:"50px 0 0 10px",
       textAlign:"left"
+    },
+    boundary:{
+      height:"100%"
     }
 
 }
+  const textLength = React.useState(99)
 
 
   return (
@@ -106,7 +111,7 @@ export default function about(props) {
             <img src="/images/meWalking.svg" style={styles.titleImg} onerror="this.onerror=null; this.src='/images/meWalking.jpg'" />
             <h2 id="about" style={styles.headings}>A bit about me</h2>
             <p style={styles.content}>Hi, I’m Alex. I’m a <strong>full stack</strong> javascript developer. I have a particular passion for the front-end. In my eyes, <strong>simplicity</strong> and <strong>usability</strong> trump flair every time. </p>
-            <p style={styles.content}>I’m also an outdoors person. I love to cook. I’m a keen writer; in the process of writing my own novel. I live through my work and love to learn.    I don’t know what I would do without my partner or my friends.</p>
+            <p style={styles.content}>I’m also an outdoors person. I love to cook. I’m a keen writer; in the process of writing my own novel. I live through my work and love to learn. I miss festivals. I don’t know what I would do without my partner or my friends.</p>
             <h2  id="famSof" style={styles.headings}>Familliar software</h2>
             <Carousel defaultControlsConfig={{nextButtonClassName: 'carouselNext'}} autoplay={true} wrapAround={true} slidesToShow={1} renderBottomCenterControls={null} renderCenterLeftControls={null} >
               {technologies.map(logo => 
@@ -117,7 +122,28 @@ export default function about(props) {
             <h2  id="profSum" style={styles.headings}>Proffessional Summary</h2>
             <p style={styles.content}>I believe that the best way to understand something is to build it. I find an immense amount of satisfaction in that. At uni, I wrote a dissertation that struggled with the concept of universal truth. I believe this is what drew me to development. <strong>To build something is to know it.</strong></p>
             <p style={styles.content}>I have worked as a developer both on a <strong>freelance</strong> basis and within various <strong>employed</strong> roles. Whilst employed, I have spent time designing and developing WordPress websites. On a freelance basis and more recently, I have built a number of websites using the <strong>MERN</strong> (Mongoose, Express, React, Node) stack, along with other notable technologies such as Next.js, Framer Motion, Material UI, Axios, Heroku and more. </p>
+            <img src="/images/london_boat.jpg" style={styles.titleImg} />
             <h2  id="workExp" style={styles.headings}>Work Experience</h2>
+
+            <AnimateSharedLayout>
+            <motion.div layout style={styles.boundary}>
+            {itemsList.map(function(item, index){
+              if(item.category === "corporate"){
+                return(
+                  <PostBlock item={item} key={index} color={props.color}/>
+                )
+              }
+            })}
+            </motion.div>
+            </AnimateSharedLayout>
+
+            
+
+
+
+
+
+
             <h2  id="achievements" style={styles.headings}>Key Achievements</h2>
             <h2  id="training" style={styles.headings}>Training</h2>
           </div>

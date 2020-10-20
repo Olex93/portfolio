@@ -3,6 +3,8 @@ import '../styles/globals.css'
 import { motion } from 'framer-motion';
 import CustomDrawer from "../components/Drawer"
 import Head from 'next/head'
+import Navigation from "../components/Navigation"
+
 
 
 function MyApp({ Component, pageProps, router }) {
@@ -89,8 +91,8 @@ function MyApp({ Component, pageProps, router }) {
 
           </Head>
           <div style={{backgroundColor:color.backgroundColor}}>
-            <CustomDrawer color={color} changeColor={changeColor}/>
-              <motion.div
+          <Navigation color={color} changeColor={changeColor}/>
+          <motion.div
                 transition={{ type: "spring", duration: 2}}
                 key={router.route}
                 initial={{marginRight:"200px"}}

@@ -8,12 +8,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import { motion } from 'framer-motion';
 import SpringDivider from "../components/SpringDivider"
 import CustomAvatar from "../components/CustomAvatar"
-import SendIcon from '@material-ui/icons/Send';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
@@ -87,9 +83,9 @@ export default function CustomDrawer(props) {
       width:"240px"
     }
   }
+  
 
   return (
-
       <div  className={classes.root}>
         <CssBaseline />
         <Drawer
@@ -169,5 +165,6 @@ export default function CustomDrawer(props) {
           </div>
         </Drawer>
     </div>
+    
   );
 }
