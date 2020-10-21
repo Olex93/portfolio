@@ -111,7 +111,7 @@ export default function DesktopHome(props) {
             >
               <Grid container alignItems="center">
                 
-                {props.theme === "light" ?
+                {props.customTheme === "light" ?
                     <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("dark")} style={{color:"#222C34"}}/></motion.div>
                         :
                     <motion.div  whileHover={{scale: 1.4, transition: {duration:.2}}} variants={item}><FiberManualRecordIcon fontSize="large" onClick={() => handleClick("light")} style={{color:"#e8e8e8"}}/></motion.div>

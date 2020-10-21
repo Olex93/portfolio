@@ -46,9 +46,8 @@ export default function CustomDrawer(props) {
     >
       <List>
          <ListItem><Link href="/"><Button><a>Home</a></Button></Link></ListItem>
-        <ListItem><Link href="/dog-walker"><Button><a>Dog Walking</a></Button></Link></ListItem>
-        <ListItem><Link href="/doggy-daycare"><Button><a>Doggy Daycare</a></Button></Link></ListItem>
-        <ListItem><Link href="/dog-boarding"><Button><a>Dog Boarding</a></Button></Link></ListItem>
+        <ListItem><Link href="/about"><Button><a>About Me</a></Button></Link></ListItem>
+        <ListItem><Link href="/work"><Button><a>My Work</a></Button></Link></ListItem>
       </List>
       <Divider />
       <List>
@@ -61,7 +60,7 @@ export default function CustomDrawer(props) {
 
   const styles = {
     menuButton:{
-      position:"absolute",
+      position:"fixed",
       top:"10px",
       right:"10px",
       zIndex:"1",
@@ -77,7 +76,7 @@ export default function CustomDrawer(props) {
         <CssBaseline />
         {['left'].map((anchor) => (
         <React.Fragment key={anchor} >
-          <button className={globals.menuButton} style={styles.menuButton} onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ fontSize: 27 }} /></button>
+          <button className={globals.menuButton} style={styles.menuButton} onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ fontSize: 27, color:props.color.textColor }} /></button>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>

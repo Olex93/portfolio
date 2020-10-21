@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/globals.css'
 import { motion } from 'framer-motion';
-import CustomDrawer from "../components/Drawer"
 import Head from 'next/head'
 import Navigation from "../components/Navigation"
 
@@ -10,7 +9,7 @@ import Navigation from "../components/Navigation"
 function MyApp({ Component, pageProps, router }) {
 
 
-  const [theme, setTheme] = React.useState("dark")
+  const [customTheme, setCustomTheme] = React.useState("dark")
 
   const [color, setColor] =  React.useState(
     {
@@ -34,7 +33,7 @@ function MyApp({ Component, pageProps, router }) {
           darkBG:"rgb(0,0,13)",
           opaqueBG:"rgba(0,0,13,0.9)"
         })
-        setTheme("dark")
+        setCustomTheme("dark")
       }
       if (newColor === "light"){
         setColor(
@@ -46,7 +45,7 @@ function MyApp({ Component, pageProps, router }) {
           darkBG:"#a2a2a2",
           opaqueBG:"rgba(182,182,182,0.8)"
         })
-        setTheme("light")
+        setCustomTheme("light")
       }
       if (newColor === "purple"){
         setColor(
@@ -99,7 +98,7 @@ function MyApp({ Component, pageProps, router }) {
                 animate={{marginRight:"0px"}}
                 id="page-transition-container"
               >
-            <Component {...pageProps}  key={router.route} theme={theme} color={color} changeColor={changeColor}/>
+            <Component {...pageProps}  key={router.route} customTheme={customTheme} color={color} changeColor={changeColor}/>
           </motion.div>
           </div>
       </div>

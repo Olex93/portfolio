@@ -21,8 +21,8 @@ export default function Navigation(props) {
 
   return (
     <>
-    {size > 991 && <Drawer color={props.color} changeColor={props.changeColor}/>}
-    {size <= 991 && <MobileDrawer color={props.color} changeColor={props.changeColor}/>}
+    {size > 991 && <Drawer theme={props.customTheme} color={props.color} changeColor={props.changeColor}/>}
+    {size <= 991 && <MobileDrawer theme={props.customTheme} color={props.color} changeColor={props.changeColor}/>}
     </>
   )
 }

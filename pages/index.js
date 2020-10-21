@@ -30,10 +30,10 @@ export default function Home(props) {
       return(
         <motion.div>
           {size > 991 &&
-          <DesktopHome color={props.color} changeColor={props.changeColor}/>
+          <DesktopHome color={props.color} changeColor={props.changeColor} customTheme={props.customTheme}/>
           }
           {size <= 991 && 
-          <MobileHome color={props.color} changeColor={props.changeColor}/>}
+          <MobileHome color={props.color} customTheme={props.customTheme} changeColor={props.changeColor}/>}
 
         </motion.div>
       )

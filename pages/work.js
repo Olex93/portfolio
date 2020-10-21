@@ -19,6 +19,14 @@ export default function work(props) {
                 backgroundColor:props.color.backgroundColor,
                 minHeight:"100vh"
             },
+            mobileBody:{
+                marginLeft:"0",
+                padding:"0",
+                textAlign:"center",
+                overflow:"hidden",
+                backgroundColor:props.color.backgroundColor,
+                minHeight:"100vh"
+            },
             gridContainer:{
                 alignItems:"center",
                 padding:"30px"
@@ -27,7 +35,8 @@ export default function work(props) {
                 display:"flex",
                 alignItems:"flexStart",
                 flexWrap:"wrap",
-                justifyContent:"center"
+                justifyContent:"center",
+                padding:0
             },
             GridButton:{
                 backgroundColor:props.color.lightBG,
@@ -85,6 +94,22 @@ export default function work(props) {
             setItems(all)
         }
     }
+
+    const [size, setSize] = React.useState([1]);
+    if (typeof window !== 'undefined') {
+  
+      // setSize to window width based on useLayoutEffect//
+      React.useLayoutEffect(() => {
+        //function to be called to update size//
+        function updateWidth() {
+          setSize([window.innerWidth]);
+        }
+        //call function on resize//
+        window.addEventListener('resize', updateWidth);
+        updateWidth();
+        return () => window.removeEventListener('resize', updateWidth);
+        }, []);
+      }
     
     const list = {
         visible: {
@@ -133,7 +158,7 @@ export default function work(props) {
  
 
     return (
-        <div style={styles.paddedBody}>
+        <div  style={size > 991 ? styles.paddedBody : styles.mobileBody}>
             <div style={{paddingTop:"80px"}}>
                 <h2 style={styles.filterHeading}>Venture:</h2>
                 <motion.button 
