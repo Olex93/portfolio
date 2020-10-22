@@ -1,9 +1,11 @@
 import React from 'react'
 import Blobs from "../components/blobs"
 import SpringDivider from './SpringDivider'
+import CloseIcon from '@material-ui/icons/Close';
+import { motion } from "framer-motion";
+
 
 export default function Lightbox(props){
-
 
     const style = {
         lightboxBG:{
@@ -45,7 +47,8 @@ export default function Lightbox(props){
             background:props.item.image,
             height:"200px",
             backgroundSize:"cover",
-            marginBottom:"20px"
+            marginBottom:"20px",
+            backgroundPosition:"center"
         },
         headingDiv:{
             padding:"0 20px 20px 20px"
@@ -121,6 +124,9 @@ export default function Lightbox(props){
                     </div>
                 </div>
             </div>
+            <motion.div whileHover={{scale: 1.4, transition: {duration:.2}}} style={{position:"absolute", top:"10px", right:"10px"}}>
+            <CloseIcon  style={{ fontSize: 40,  color:props.color.highlightColor, cursor:"pointer" }} onClick={props.closeLightbox}/>
+            </motion.div>
         </div>
     )
 }
