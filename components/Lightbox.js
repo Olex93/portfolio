@@ -20,6 +20,10 @@ export default function Lightbox(props){
             height:"100%",
             marginLeft:"240px",
         },
+        mobileOuter:{
+            display:"flex",
+            margin:0
+        },
         innerContainer:{
             height:"500px",
             margin:"auto",
