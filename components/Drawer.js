@@ -14,7 +14,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
-import theme from "../pages/theme"
+import theme from "./theme"
 import Link from 'next/link'
 
 

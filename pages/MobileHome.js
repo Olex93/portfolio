@@ -8,7 +8,7 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 
 
-export default function DesktopHome(props) {
+export default function MobileHome(props) {
 
   const styles = {
     CustomBody: {

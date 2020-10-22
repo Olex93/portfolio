@@ -10,6 +10,8 @@ import ListItem from '@material-ui/core/ListItem';
 import Link from 'next/link'
 import Divider from '@material-ui/core/Divider';
 import globals from "../styles/homepage.module.css"
+import { motion } from "framer-motion";
+
 
 const useStyles = makeStyles({
   list: {
@@ -76,7 +78,7 @@ export default function CustomDrawer(props) {
         <CssBaseline />
         {['left'].map((anchor) => (
         <React.Fragment key={anchor} >
-          <button className={globals.menuButton} style={styles.menuButton} onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ fontSize: 27, color:props.color.textColor }} /></button>
+          <motion.button whileHover={{scale: 1.2}} className={globals.menuButton} style={styles.menuButton} onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ fontSize: 27, color:props.color.textColor }} /></motion.button>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>
