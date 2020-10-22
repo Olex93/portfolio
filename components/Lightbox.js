@@ -22,7 +22,8 @@ export default function Lightbox(props){
         },
         mobileOuter:{
             display:"flex",
-            margin:0
+            marginLeft:0,
+            height:"100vh"
         },
         innerContainer:{
             height:"500px",
@@ -84,7 +85,7 @@ export default function Lightbox(props){
 
     return(
         <div style={style.lightboxBG}>
-            <div style={size > 991 ? styles.outerContainer : styles.mobileOuter} onClick={() => props.closeLightbox()}>
+            <div style={size > 991 ? style.outerContainer : style.mobileOuter} onClick={() => props.closeLightbox()}>
                 <div style={style.innerContainer}>
                     <div style={style.imgDiv} />
                     <div style={style.headingDiv}>
