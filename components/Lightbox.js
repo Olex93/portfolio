@@ -23,12 +23,20 @@ export default function Lightbox(props){
         mobileOuter:{
             display:"flex",
             marginLeft:0,
-            height:"100vh"
+            height:"100vh",
         },
         innerContainer:{
             height:"500px",
             margin:"auto",
             width:"400px",
+            backgroundColor:props.color.lightBG,
+            overflow:"scroll",
+            textAlign:"left",
+        },
+        innerContainerMobile:{
+            height:"80%",
+            margin:"auto",
+            width:"80%",
             backgroundColor:props.color.lightBG,
             overflow:"scroll",
             textAlign:"left",
@@ -86,7 +94,7 @@ export default function Lightbox(props){
     return(
         <div style={style.lightboxBG}>
             <div style={size > 991 ? style.outerContainer : style.mobileOuter} onClick={() => props.closeLightbox()}>
-                <div style={style.innerContainer}>
+                <div style={size > 600 ? style.innerContainer : style.innerContainerMobile}>
                     <div style={style.imgDiv} />
                     <div style={style.headingDiv}>
                         <h2 style={style.heading}>{props.item.heading}</h2>
