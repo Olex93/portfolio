@@ -83,6 +83,8 @@ function MyApp({ Component, pageProps, router }) {
       damping: 20,
       stiffness: 100
     };
+
+    
   
     return (
       <div>

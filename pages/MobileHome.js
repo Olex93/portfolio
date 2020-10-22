@@ -15,8 +15,8 @@ export default function MobileHome(props) {
     CustomBody: {
       height:"100vh",
       width:"100%",
-
       backgroundColor:props.color.backgroundColor,
+      overflow:"hidden"
     },
     outerBody: {
       width:"100%",
@@ -69,10 +69,17 @@ export default function MobileHome(props) {
     borderRadius:"3px",
     boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
     cursor: "pointer"
-},
+  },
   buttonLink:{
     color:props.color.textColor,
     textDecoration:"none"
+  },
+  mobileHeading:{
+    fontSize:"4rem",
+        lineHeight: "1.2",
+        letterSpacing: "2px",
+        fontWeight: "900",
+        color:props.color.highlightColor
   }
   }
 
@@ -104,6 +111,22 @@ export default function MobileHome(props) {
     },
   }
 
+  const [size, setSize] = React.useState([1]);
+  if (typeof window !== 'undefined') {
+    // setSize to window width based on useLayoutEffect//
+    React.useLayoutEffect(() => {
+      //function to be called to update size//
+      function updateWidth() {
+        setSize([window.innerWidth]);
+      }
+      //call function on resize//
+      window.addEventListener('resize', updateWidth);
+      updateWidth();
+      return () => window.removeEventListener('resize', updateWidth);
+    }, []);
+  }
+  
+
   return (
     <div>
     <Head>
@@ -116,7 +139,7 @@ export default function MobileHome(props) {
         <div style={styles.outerBody}>
           <div style={styles.innerBody}>
             <div>
-              <h1 style={styles.customHeading}>Alex Foster</h1>
+              <h1 style={size > 869 ? styles.customHeading : styles.mobileHeading}>Alex Foster</h1>
               <h2 style={styles.customh2}>MERN Web Application Developer & UX Designer</h2>
               <motion.button
             whileHover={{
