@@ -66,9 +66,25 @@ export default function Lightbox(props){
         }
     }
 
+    const [size, setSize] = React.useState([1]);
+  if (typeof window !== 'undefined') {
+
+    // setSize to window width based on useLayoutEffect//
+    React.useLayoutEffect(() => {
+      //function to be called to update size//
+      function updateWidth() {
+        setSize([window.innerWidth]);
+      }
+      //call function on resize//
+      window.addEventListener('resize', updateWidth);
+      updateWidth();
+      return () => window.removeEventListener('resize', updateWidth);
+      }, []);
+    }
+
     return(
         <div style={style.lightboxBG}>
-            <div style={style.outerContainer} onClick={() => props.closeLightbox()}>
+            <div style={size > 991 ? styles.outerContainer : styles.mobileOuter} onClick={() => props.closeLightbox()}>
                 <div style={style.innerContainer}>
                     <div style={style.imgDiv} />
                     <div style={style.headingDiv}>
