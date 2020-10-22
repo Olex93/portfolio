@@ -13,10 +13,14 @@ export default function MobileHome(props) {
 
   const styles = {
     CustomBody: {
-      minHeight: "-webkit-fill-available",
-      width:"100%",
+      position:"absolute",
+      top:0,
+      right:0,
+      left:0,
+      bottom:0,
       backgroundColor:props.color.backgroundColor,
-      overflow:"hidden"
+      overflow:"hidden",
+      zIndex:"-1"
     },
     outerBody: {
       width:"100%",
