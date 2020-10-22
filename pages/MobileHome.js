@@ -13,7 +13,7 @@ export default function MobileHome(props) {
 
   const styles = {
     CustomBody: {
-      height:"100vh",
+      minHeight: "-webkit-fill-available",
       width:"100%",
       backgroundColor:props.color.backgroundColor,
       overflow:"hidden"
