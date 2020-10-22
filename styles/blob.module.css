@@ -12,7 +12,7 @@
     right:-100px;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 600px) {
     .innerOrangeDiv {
         position:fixed;
         width:300px;
@@ -135,7 +135,7 @@
     right:-25px;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 600px) {
     .innerBlueDiv {
         position:fixed;
         width:300px;
