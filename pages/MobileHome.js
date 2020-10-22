@@ -27,11 +27,11 @@ export default function MobileHome(props) {
     },
     innerBody:{
         width: "100%",
-        marginLeft:"10px",
         height:"100%",
         display: "flex",
         flexDirection:"column",
         justifyContent: "center",
+        padding:"10px",
         alignItems: "center",
         textAlign:"center",
         zIndex:"99",

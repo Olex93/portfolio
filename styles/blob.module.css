@@ -12,6 +12,16 @@
     right:-100px;
 }
 
+@media only screen and (max-width: 991px) {
+    .innerOrangeDiv {
+        position:fixed;
+        width:300px;
+        height:300px;
+        top:-325px;
+        right:-150px;
+    }
+  }
+
 
 .orangeBlob{
     width:500px;
@@ -47,6 +57,19 @@
     }
   }
 
+  
+  @media only screen and (max-width: 600px) {
+    .innerPurpleDiv {
+        position:fixed;
+        width:300px;
+        height:300px;
+        top:-325px;
+        left:-305px;
+
+    }
+  }
+
+
 .purpleBlob{
     width:500px;
     animation: purpleMove 60s linear infinite;
@@ -73,8 +96,18 @@
         position:fixed;
         width:300px;
         height:300px;
-        bottom:-150px;
+        bottom:-125px;
         left:-225px;
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+    .innerGreenDiv {
+        position:fixed;
+        width:300px;
+        height:300px;
+        bottom:-200px;
+        left:-275px;
     }
   }
 
@@ -98,15 +131,27 @@
     position:fixed;
     width:300px;
     height:300px;
-    bottom:-150px;
+    bottom:-125px;
     right:-25px;
 }
+
+@media only screen and (max-width: 991px) {
+    .innerBlueDiv {
+        position:fixed;
+        width:300px;
+        height:300px;
+        bottom:-200px;
+        right:-75px;
+    }
+  }
 
 .blueBlob{
     width:500px;
     animation: blueMove 60s linear infinite;
     transform-origin: 50% 50%;
 }
+
+
 
 @keyframes blueMove {
     0%   { transform: scale(1) ; }
