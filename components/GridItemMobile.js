@@ -87,7 +87,7 @@ export default function GridItem(props) {
 
     const [expanded, setExpanded] = React.useState(false)
     const [number, setNumber] = React.useState(100);
-    function expand(){
+    function expand(e){
         const fullLength = props.item.text.length
         if (number === 100) {
             setNumber(fullLength)
@@ -95,6 +95,7 @@ export default function GridItem(props) {
         } else {
             setNumber(100)
             setExpanded(false)
+            document.getElementById(`div${e.target.id}`).scrollIntoView(true);
         }
     }
 
@@ -112,7 +113,7 @@ export default function GridItem(props) {
                     }
                 }}
         >  
-        <div style={styles.topBar}>
+        <div id={"div" + props.item.key} style={styles.topBar}>
             <img src={props.item.logoSRC} style={styles.logoIcon}></img>
             <motion.h2 style={styles.heading} >{props.item.heading}</motion.h2>
         </div>
@@ -142,7 +143,8 @@ export default function GridItem(props) {
                     duration: .2
                     }
                 }}
-                 onClick={expand} style={styles.button}>{!expanded ? "Expand" : "Close"}
+                id={props.item.key.toString()}
+                onClick={(e) => expand(e)} style={styles.button}>{!expanded ? "Expand" : "Close"}
             </motion.button>
         </div>
         </motion.div>
