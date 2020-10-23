@@ -54,8 +54,8 @@ export default function GridItem(props) {
             display:"flex",
             justifyContent:"flex-start",
             alignItems:"center",
-            margin:"20px 20px 0",
-            alignContent:"center"
+            margin:"20px 20px 0 15px",
+            alignContent:"center",
         },
         heading:{
             marginLeft:"15px"
@@ -121,6 +121,7 @@ export default function GridItem(props) {
         <div style={styles.paragraph}>
             <motion.p style={styles.date}>{props.item.date}</motion.p>
             <motion.p >{number === 100 ? props.item.text.substring(0, number) + "..." : props.item.text.substring(0, number)}</motion.p>
+            {expanded && <motion.p>{props.item.url}</motion.p>}
             <div style={!expanded ? styles.hiddenContent : styles.shownContent}>
                 <p style={styles.subHeading}><i style={styles.headingSpan}>Full list of technologies:</i></p>
                 <ul style={styles.list}>

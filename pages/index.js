@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import { motion, AnimatePresence } from "framer-motion";
-import DesktopHome from './DesktopHome';
-import MobileHome from "./MobileHome"
+import HomeDesktop from '../components/HomeDesktop';
+import HomeMobile from "../components/HomeMobile"
 
 
 
@@ -30,10 +30,10 @@ export default function Home(props) {
       return(
         <motion.div>
           {size > 991 &&
-          <DesktopHome color={props.color} changeColor={props.changeColor} customTheme={props.customTheme}/>
+          <HomeDesktop color={props.color} changeColor={props.changeColor} customTheme={props.customTheme}/>
           }
           {size <= 991 && 
-          <MobileHome color={props.color} customTheme={props.customTheme} changeColor={props.changeColor}/>}
+          <HomeMobile color={props.color} customTheme={props.customTheme} changeColor={props.changeColor}/>}
 
         </motion.div>
       )
