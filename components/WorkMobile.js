@@ -33,10 +33,22 @@ export default function work(props) {
                 margin:0
             },
             GridButton:{
-                backgroundColor:props.color.lightBG,
+                backgroundColor:props.color.backgroundColor,
+                color:props.color.highlightColor,
+                margin:"5px",
+                border:`2px solid ${props.color.highlightColor}`,
+                padding:"5px 10px",
+                fontSize:"18px",
+                fontWeight:"700",
+                borderRadius:"3px",
+                boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+                cursor:"pointer"
+            },
+            GridButtonFill:{
+                backgroundColor:props.color.highlightColor,
                 color:props.color.textColor,
                 margin:"5px",
-                border:"none",
+                border:`2px solid ${props.color.lightBG}`,
                 padding:"5px 10px",
                 fontSize:"18px",
                 fontWeight:"700",
@@ -70,24 +82,37 @@ export default function work(props) {
         return item.category === "personal"
        })
 
+    // HIGHLIGHTING BUTTON COLOR
+    const [allButton, setAllButton] = React.useState(true)
+    const [personalButton, setPersonalButton] = React.useState(false)
+    const [corporateButton, setCorporateButton] = React.useState(false)
+
+    // Import all list items
     const all = itemsList
-
-    // // make items list stateful
+    // // Make a stateful items list 
     const [items, setItems] = React.useState(all)
-
-    
     // Set which items are contained within items by filtering through itemsList based on the tag which was selected
     function updateItems(e){
         if (e.target.id === "corporate"){
+            setCorporateButton(true)
+            setPersonalButton(false)
+            setAllButton(false)
             setItems(corporate)
         }
         if (e.target.id === "personal"){
             setItems(personal)
+            setCorporateButton(false)
+            setPersonalButton(true)
+            setAllButton(false)
         }
         if (e.target.id === "all"){
             setItems(all)
+            setCorporateButton(false)
+            setPersonalButton(false)
+            setAllButton(true)
         }
     }
+
     
     const list = {
         visible: {
@@ -113,43 +138,23 @@ export default function work(props) {
             <div style={{paddingTop:"80px"}}>
                 <h2 style={styles.filterHeading}>Venture:</h2>
                 <motion.button 
-                    id="corporate" 
-                    style={styles.GridButton} 
+                    id="all" 
+                    style={allButton ? styles.GridButtonFill : styles.GridButton}
                     onClick={(e) => updateItems(e)}
-                    whileHover={{
-                        scale: 1.1,
-                        backgroundColor:props.color.highlightColor,
-                        color: props.color.backgroundColor,
-                        transition: {
-                            duration: .2
-                            }
-                        }}
+                    whileHover={{scale: 1.1}}
+                    >All</motion.button>
+                <motion.button 
+                    id="corporate" 
+                    style={corporateButton ? styles.GridButtonFill : styles.GridButton} 
+                    onClick={(e) => updateItems(e)}
+                    whileHover={{scale: 1.1}}
                     >Corporate</motion.button>
                 <motion.button 
                     id="personal" 
-                    style={styles.GridButton} 
+                    style={personalButton ? styles.GridButtonFill : styles.GridButton} 
                     onClick={(e) => updateItems(e)}
-                    whileHover={{
-                        scale: 1.1,
-                        backgroundColor:props.color.highlightColor,
-                        color: props.color.backgroundColor,
-                        transition: {
-                            duration: .2
-                            }
-                        }}
+                    whileHover={{scale: 1.1}}
                     >Personal</motion.button>
-                <motion.button 
-                    id="all" style={styles.GridButton} 
-                    onClick={(e) => updateItems(e)}
-                    whileHover={{
-                        scale: 1.1,
-                        backgroundColor:props.color.highlightColor,
-                        color: props.color.backgroundColor,
-                        transition: {
-                            duration: .2
-                            }
-                        }}
-                    >All</motion.button>
             </div>
             <div style={{margin:"30px auto 0"}}>
             <SpringDivider color={props.color} width={"10%"} dividerBG={props.color.backgroundColor}/>
