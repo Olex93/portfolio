@@ -10,21 +10,33 @@ import ColorSelect from "../components/colorSelect"
 
 export default function work(props) {
 
+    const [colorWord, setColorWord] = React.useState("orange")
+    React.useEffect(() => {
+        if (props.color.highlightColor === "rgb(224,128,49)"){
+          setColorWord("orange")
+        } if (props.color.highlightColor === "rgb(128,93,201)"){
+          setColorWord("purple")
+        } if (props.color.highlightColor === "rgb(87,190,106)"){
+          setColorWord("green")
+        } if (props.color.highlightColor === "rgb(77,128,255)"){
+          setColorWord("blue")
+        }
+      })
+
     const styles = {
             paddedBody:{
                 marginLeft:"240px",
                 padding:"0 30px",
                 textAlign:"center",
                 overflow:"hidden",
-                backgroundColor:props.color.backgroundColor,
-                minHeight:"100vh"
+                minHeight:"100vh",
+                marginTop:"-350px"
             },
             mobileBody:{
                 marginLeft:"0",
                 padding:"0",
                 textAlign:"center",
                 overflow:"hidden",
-                backgroundColor:props.color.backgroundColor,
                 minHeight:"100vh"
             },
             gridContainer:{
@@ -39,10 +51,10 @@ export default function work(props) {
                 padding:0
             },
             GridButton:{
-                backgroundColor:props.color.lightBG,
-                color:props.color.textColor,
+                backgroundColor:props.color.backgroundColor,
+                color:props.color.highlightColor,
                 margin:"5px",
-                border:"none",
+                border:`2px solid ${props.color.highlightColor}`,
                 padding:"5px 10px",
                 fontSize:"18px",
                 fontWeight:"700",
@@ -50,22 +62,50 @@ export default function work(props) {
                 boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
                 cursor:"pointer"
             },
-            highlightButton:{
+            GridButtonFill:{
                 backgroundColor:props.color.highlightColor,
                 color:props.color.textColor,
                 margin:"5px",
-                border:"none",
+                border:`2px solid ${props.color.highlightColor}`,
                 padding:"5px 10px",
                 fontSize:"18px",
                 fontWeight:"700",
                 borderRadius:"3px",
-                boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`
+                boxShadow:`inset 2px 2px 12px -6px ${props.color.darkBG}`,
+                cursor:"pointer"
             },
             filterHeading:{
                 display:"inline", 
                 paddingRight:"10px",
                 color:props.color.highlightColor
-            }
+            },
+            headingDiv:{
+                backgroundImage:`url('/images/${colorWord}Blob.svg')`,
+                backgroundSize:"1200px",
+                backgroundRepeat:"no-repeat",
+                backgroundPosition:"-340px -800px",
+                height:"600px",
+                marginBottom:"-300px",
+                marginLeft:"240px",
+                paddingLeft:"40px",
+                overflow:"visible"
+              },
+              headingDivMobile:{
+                backgroundImage:`url('/images/${colorWord}Blob.svg')`,
+                backgroundSize:"1200px",
+                backgroundRepeat:"no-repeat",
+                backgroundPosition:"-340px -800px",
+                height:"600px",
+                marginBottom:"-300px",
+                marginLeft:"0",
+                paddingLeft:"40px",
+                overflow:"visible"
+              },
+              heading:{
+                color:"rgb(34,44,52)",
+                fontSize:'60px',
+                padding:"40px 0"
+              }
         }
     
     const corporate = itemsList.filter(item =>{
@@ -76,24 +116,37 @@ export default function work(props) {
         return item.category === "personal"
        })
 
-    const all = itemsList
 
-    // // make items list stateful
-    const [items, setItems] = React.useState(all)
+ // HIGHLIGHTING BUTTON COLOR
+        const [allButton, setAllButton] = React.useState(true)
+        const [personalButton, setPersonalButton] = React.useState(false)
+        const [corporateButton, setCorporateButton] = React.useState(false)
 
-    
-    // Set which items are contained within items by filtering through itemsList based on the tag which was selected
-    function updateItems(e){
-        if (e.target.id === "corporate"){
-            setItems(corporate)
+        // Import all list items
+        const all = itemsList
+        // // Make a stateful items list 
+        const [items, setItems] = React.useState(all)
+        // Set which items are contained within items by filtering through itemsList based on the tag which was selected
+        function updateItems(e){
+            if (e.target.id === "corporate"){
+                setCorporateButton(true)
+                setPersonalButton(false)
+                setAllButton(false)
+                setItems(corporate)
+            }
+            if (e.target.id === "personal"){
+                setItems(personal)
+                setCorporateButton(false)
+                setPersonalButton(true)
+                setAllButton(false)
+            }
+            if (e.target.id === "all"){
+                setItems(all)
+                setCorporateButton(false)
+                setPersonalButton(false)
+                setAllButton(true)
+            }
         }
-        if (e.target.id === "personal"){
-            setItems(personal)
-        }
-        if (e.target.id === "all"){
-            setItems(all)
-        }
-    }
 
     const [size, setSize] = React.useState([1]);
     if (typeof window !== 'undefined') {
@@ -158,47 +211,31 @@ export default function work(props) {
  
 
     return (
+        <div>
+        <div style={size > 991 ? styles.headingDiv : styles.headingDivMobile}>
+            <motion.h1 style={styles.heading}>My Work</motion.h1>
+        </div>
         <div  style={size > 991 ? styles.paddedBody : styles.mobileBody}>
             <div style={{paddingTop:"80px"}}>
                 <h2 style={styles.filterHeading}>Venture:</h2>
                 <motion.button 
-                    id="corporate" 
-                    style={styles.GridButton} 
+                    id="all" 
+                    style={allButton ? styles.GridButtonFill : styles.GridButton}
                     onClick={(e) => updateItems(e)}
-                    whileHover={{
-                        scale: 1.1,
-                        backgroundColor:props.color.highlightColor,
-                        color: props.color.backgroundColor,
-                        transition: {
-                            duration: .2
-                            }
-                        }}
+                    whileHover={{scale: 1.1}}
+                    >All</motion.button>
+                <motion.button 
+                    id="corporate" 
+                    style={corporateButton ? styles.GridButtonFill : styles.GridButton} 
+                    onClick={(e) => updateItems(e)}
+                    whileHover={{scale: 1.1}}
                     >Corporate</motion.button>
                 <motion.button 
                     id="personal" 
-                    style={styles.GridButton} 
+                    style={personalButton ? styles.GridButtonFill : styles.GridButton} 
                     onClick={(e) => updateItems(e)}
-                    whileHover={{
-                        scale: 1.1,
-                        backgroundColor:props.color.highlightColor,
-                        color: props.color.backgroundColor,
-                        transition: {
-                            duration: .2
-                            }
-                        }}
+                    whileHover={{scale: 1.1}}
                     >Personal</motion.button>
-                <motion.button 
-                    id="all" style={styles.GridButton} 
-                    onClick={(e) => updateItems(e)}
-                    whileHover={{
-                        scale: 1.1,
-                        backgroundColor:props.color.highlightColor,
-                        color: props.color.backgroundColor,
-                        transition: {
-                            duration: .2
-                            }
-                        }}
-                    >All</motion.button>
             </div>
             <div style={{margin:"30px auto 0"}}>
             <SpringDivider color={props.color} width={"10%"} dividerBG={props.color.backgroundColor}/>
@@ -225,6 +262,7 @@ export default function work(props) {
                     </motion.div>
                 }
             </div>
+        </div>
         </div>
     );
     }

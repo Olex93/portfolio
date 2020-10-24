@@ -6,6 +6,9 @@ import Carousel from 'nuka-carousel';
 import itemsList from "../components/ItemsList"
 import PostBlock from "../components/postBlock"
 
+
+
+
 export default function about(props) {
   const technologies = ["/images/codeLogos/react.svg", "/images/codeLogos/javascript.svg", "/images/codeLogos/html.svg", "/images/codeLogos/css.svg", "/images/codeLogos/next.svg", "/images/codeLogos/bootstrap.svg", "/images/codeLogos/github.svg", "/images/codeLogos/jquery.svg", "/images/codeLogos/mongodb.svg", "/images/codeLogos/node.svg", "/images/codeLogos/wordpress.svg", "/images/codeLogos/zoho.svg"]
 
@@ -40,11 +43,23 @@ export default function about(props) {
       backgroundPosition:"-340px -800px",
       height:"600px",
       marginBottom:"-300px",
+      paddingLeft:"40px"
+    },
+    headingDivMobile:{
+      backgroundImage:`url('/images/${colorWord}Blob.svg')`,
+      backgroundSize:"1200px",
+      backgroundRepeat:"no-repeat",
+      backgroundPosition:"-340px -850px",
+      height:"600px",
+      marginBottom:"-370px",
+      marginLeft:"0",
+      paddingLeft:"40px",
+      overflow:"visible"
     },
     heading:{
       color:"rgb(34,44,52)",
       fontSize:'60px',
-      padding:"40px 0 0 40px"
+      padding:"40px 0"
     },
     flexBox:{
       display:"flex",
@@ -118,8 +133,8 @@ export default function about(props) {
     },
     boundary:{
       height:"100%"
-    }
-
+    },
+    
 }
   const textLength = React.useState(99)
 
@@ -145,8 +160,8 @@ export default function about(props) {
         <title>Alex Foster - About Me</title>
       </Head>
       <motion.div style={size > 991 ? styles.CustomBody : styles.mobileBody}>
-        <div style={styles.headingDiv}>
-          <h1 style={styles.heading}>Hey, I'm Alex</h1>
+        <div style={size > 991 ? styles.headingDiv : styles.headingDivMobile}>
+          <motion.h1 style={styles.heading}>Hey, I'm Alex</motion.h1>
         </div>
         <div style={styles.flexBox}>
           <div style={size > 1120 ? styles.leftCol : styles.leftColHide }>
@@ -190,11 +205,6 @@ export default function about(props) {
             </AnimateSharedLayout>
 
             
-
-
-
-
-
 
             <h2  id="achievements" style={styles.headings}>Key Achievements</h2>
             <h2  id="training" style={styles.headings}>Training</h2>

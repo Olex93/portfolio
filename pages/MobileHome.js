@@ -150,9 +150,6 @@ export default function MobileHome(props) {
                 scale: 1.2,
                 backgroundColor:props.color.highlightColor,
                 color: props.color.backgroundColor,
-                transition: {
-                    duration: .2
-                    }
                 }}
               style={styles.button}><Link href="work"><a style={styles.buttonLink}>My Work</a></Link>
             </motion.button>
@@ -161,9 +158,6 @@ export default function MobileHome(props) {
                 scale: 1.2,
                 backgroundColor:props.color.highlightColor,
                 color: props.color.backgroundColor,
-                transition: {
-                    duration: .2
-                    }
                 }}
               style={styles.button}><Link href="about"><a style={styles.buttonLink}>About Me</a></Link>
             </motion.button>

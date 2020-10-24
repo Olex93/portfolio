@@ -10,12 +10,24 @@ import ColorSelect from "../components/colorSelect"
 
 export default function work(props) {
 
+    const [colorWord, setColorWord] = React.useState("orange")
+    React.useEffect(() => {
+        if (props.color.highlightColor === "rgb(224,128,49)"){
+          setColorWord("orange")
+        } if (props.color.highlightColor === "rgb(128,93,201)"){
+          setColorWord("purple")
+        } if (props.color.highlightColor === "rgb(87,190,106)"){
+          setColorWord("green")
+        } if (props.color.highlightColor === "rgb(77,128,255)"){
+          setColorWord("blue")
+        }
+      })
+
     const styles = {
             mobileBody:{
                 margin:0,
                 padding:0,
                 overflow:"hidden",
-                backgroundColor:props.color.backgroundColor,
                 minHeight:"100vh",
                 textAlign:"center"
             },
@@ -46,9 +58,9 @@ export default function work(props) {
             },
             GridButtonFill:{
                 backgroundColor:props.color.highlightColor,
-                color:props.color.textColor,
+                color:props.color.darkBG,
                 margin:"5px",
-                border:`2px solid ${props.color.lightBG}`,
+                border:`2px solid ${props.color.darkBG}`,
                 padding:"5px 10px",
                 fontSize:"18px",
                 fontWeight:"700",
@@ -56,22 +68,27 @@ export default function work(props) {
                 boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
                 cursor:"pointer"
             },
-            highlightButton:{
-                backgroundColor:props.color.highlightColor,
-                color:props.color.textColor,
-                margin:"5px",
-                border:"none",
-                padding:"5px 10px",
-                fontSize:"18px",
-                fontWeight:"700",
-                borderRadius:"3px",
-                boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`
-            },
             filterHeading:{
                 display:"inline", 
                 paddingRight:"10px",
                 color:props.color.highlightColor
-            }
+            },
+            headingDiv:{
+                backgroundImage:`url('/images/${colorWord}Blob.svg')`,
+                backgroundSize:"1200px",
+                backgroundRepeat:"no-repeat",
+                backgroundPosition:"-340px -850px",
+                height:"600px",
+                marginBottom:"-370px",
+                marginLeft:"0",
+                paddingLeft:"40px",
+                overflow:"visible"
+              },
+              heading:{
+                color:"rgb(34,44,52)",
+                fontSize:'60px',
+                padding:"40px 0"
+              }
         }
     
     const corporate = itemsList.filter(item =>{
@@ -134,6 +151,10 @@ export default function work(props) {
  
 
     return (
+        <div>
+        <div style={styles.headingDiv}>
+            <motion.h1 style={styles.heading}>My Work</motion.h1>
+        </div>
         <div  style={styles.mobileBody}>
             <div style={{paddingTop:"80px"}}>
                 <h2 style={styles.filterHeading}>Venture:</h2>
@@ -176,6 +197,7 @@ export default function work(props) {
                         ))}
             </motion.ul>
             </div>
+        </div>
         </div>
     );
     }
