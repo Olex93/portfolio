@@ -63,28 +63,28 @@ export default function MobileHome(props) {
       height:"17px",
       margin:"0 5px 5px 5px"
     },
-  button:{
-    backgroundColor:props.color.backgroundColor,
-    border:`2px solid ${props.color.highlightColor}`,
-    margin:"5px 10px",
-    padding:"5px 10px",
-    fontSize:"18px",
-    fontWeight:"700",
-    borderRadius:"3px",
-    boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
-    cursor: "pointer"
-  },
-  buttonLink:{
-    color:props.color.textColor,
-    textDecoration:"none"
-  },
-  mobileHeading:{
-    fontSize:"4rem",
-        lineHeight: "1.2",
-        letterSpacing: "2px",
-        fontWeight: "900",
-        color:props.color.highlightColor
-  }
+    buttonLink:{
+      color:props.color.textColor,
+      textDecoration:"none"
+    },
+    mobileHeading:{
+      fontSize:"4rem",
+          lineHeight: "1.2",
+          letterSpacing: "2px",
+          fontWeight: "900",
+          color:props.color.highlightColor
+    },
+    button:{
+      backgroundColor:props.color.backgroundColor,
+      border:`2px solid ${props.color.highlightColor}`,
+      margin:"5px 10px",
+      padding:"5px 10px",
+      fontSize:"18px",
+      fontWeight:"700",
+      borderRadius:"3px",
+      boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+      cursor: "pointer"
+    }
   }
 
   const handleClick = function(color){
@@ -115,6 +115,7 @@ export default function MobileHome(props) {
     },
   }
 
+  
   const [size, setSize] = React.useState([1]);
   if (typeof window !== 'undefined') {
     // setSize to window width based on useLayoutEffect//
@@ -146,35 +147,23 @@ export default function MobileHome(props) {
               <h1 style={size > 869 ? styles.customHeading : styles.mobileHeading}>Alex Foster</h1>
               <h2 style={styles.customh2}>MERN Web Application Developer & UX Designer</h2>
               <motion.button
-            whileHover={{
-                scale: 1.2,
-                backgroundColor:props.color.highlightColor,
-                color: props.color.backgroundColor,
-                transition: {
-                    duration: .2
-                    }
-                }}
-              style={styles.button}><Link href="work"><a style={styles.buttonLink}>My Work</a></Link>
-            </motion.button>
-            <motion.button
-            whileHover={{
-                scale: 1.2,
-                backgroundColor:props.color.highlightColor,
-                color: props.color.backgroundColor,
-                transition: {
-                    duration: .2
-                    }
-                }}
-              style={styles.button}><Link href="about"><a style={styles.buttonLink}>About Me</a></Link>
-            </motion.button>
-            </div>
-            <div style={styles.flexGrid}>
-            <motion.ul
-              initial="hidden"
-              animate="visible"
-              variants={list}
-              style={{paddingLeft:"0"}}
-            >
+                style={styles.button}
+                whileHover={{scale:1.2}}
+              ><Link href="work"><a style={styles.buttonLink}>My Work</a></Link>
+              </motion.button>
+              <motion.button
+                style={styles.button}
+                whileHover={{scale:1.2}}
+              ><Link href="about"><a style={styles.buttonLink}>About Me</a></Link>
+              </motion.button>
+              </div>
+              <div style={styles.flexGrid}>
+              <motion.ul
+                initial="hidden"
+                animate="visible"
+                variants={list}
+                style={{paddingLeft:"0"}}
+              >
               <Grid container alignItems="center">
                 
                 {props.customTheme === "light" ?

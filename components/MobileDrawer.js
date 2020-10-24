@@ -70,6 +70,9 @@ export default function CustomDrawer(props) {
       border:"none",
       cursor:"pointer",
     },
+    drawer:{
+      backgroundColor:props.color.lightBG
+    }
   }
 
 

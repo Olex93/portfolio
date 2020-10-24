@@ -58,14 +58,14 @@ export default function work(props) {
             },
             GridButtonFill:{
                 backgroundColor:props.color.highlightColor,
-                color:props.color.darkBG,
+                color:props.color.textColor,
                 margin:"5px",
-                border:`2px solid ${props.color.darkBG}`,
+                border:`2px solid ${props.color.highlightColor}`,
                 padding:"5px 10px",
                 fontSize:"18px",
                 fontWeight:"700",
                 borderRadius:"3px",
-                boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+                boxShadow:`inset 2px 2px 12px -6px ${props.color.darkBG}`,
                 cursor:"pointer"
             },
             filterHeading:{
