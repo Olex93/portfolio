@@ -51,12 +51,7 @@ export default function CustomDrawer(props) {
         <ListItem><Link href="/about"><Button><a>About Me</a></Button></Link></ListItem>
         <ListItem><Link href="/work"><Button><a>My Work</a></Button></Link></ListItem>
       </List>
-      <Divider />
-      <List>
-        <ListItem><Link href="/miranda"><Button><a>About</a></Button></Link></ListItem>
-        <ListItem><Link href="/private-fields"><Button><a>Our Fields</a></Button></Link></ListItem>
-        <ListItem><Link href="/contact"><Button><a>Contact</a></Button></Link></ListItem>
-      </List>
+      
     </div>
   );
 
