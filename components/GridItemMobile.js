@@ -112,11 +112,12 @@ export default function GridItem(props) {
                     duration: .2
                     }
                 }}
+                layout
         >  
-        <div id={"div" + props.item.key} style={styles.topBar}>
-            <img src={props.item.logoSRC} style={styles.logoIcon}></img>
-            <motion.h2 style={styles.heading} >{props.item.heading}</motion.h2>
-        </div>
+        <motion.div layout id={"div" + props.item.key} style={styles.topBar}>
+            <motion.img layout src={props.item.logoSRC} style={styles.logoIcon}></img>
+            <motion.h2 layout style={styles.heading} >{props.item.heading}</motion.h2>
+        </motion.div>
         <div style={styles.imageDiv} />
             <SpringDivider color={props.color} width={"100%"} dividerBG={props.color.backgroundColor}/>
         <div style={styles.paragraph}>
