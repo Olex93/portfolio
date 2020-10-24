@@ -115,7 +115,7 @@ export default function GridItem(props) {
                 layout
         >  
         <motion.div layout id={"div" + props.item.key} style={styles.topBar}>
-            <motion.img layout src={props.item.logoSRC} style={styles.logoIcon}></img>
+            <motion.img layout src={props.item.logoSRC} style={styles.logoIcon}></motion.img>
             <motion.h2 layout style={styles.heading} >{props.item.heading}</motion.h2>
         </motion.div>
         <div style={styles.imageDiv} />
