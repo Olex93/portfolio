@@ -34,7 +34,8 @@ export default function work(props) {
             gridContainer:{
                 alignItems:"center",
                 padding:0,
-                margin:0
+                margin:0,
+                overflow:"hidden"
             },
             grid:{
                 display:"flex",
@@ -42,7 +43,7 @@ export default function work(props) {
                 flexWrap:"wrap",
                 justifyContent:"center",
                 padding:0,
-                margin:0
+                margin:0,
             },
             GridButton:{
                 backgroundColor:props.color.backgroundColor,
@@ -82,7 +83,7 @@ export default function work(props) {
                 marginBottom:"-370px",
                 marginLeft:"0",
                 paddingLeft:"40px",
-                overflow:"visible"
+                overflow:"hidden"
               },
               heading:{
                 color:"rgb(34,44,52)",
