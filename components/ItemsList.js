@@ -50,7 +50,9 @@ const itemsList = [
         workExp1:"Complete overhaul of company website. The site is coded in React.js (.jsx) and implemented using the Next.js framework to create a pre-rendered single-page-application (SPA). This approach was elected for the UX benefits of a SPA, whilst maintaining the SEO benefits of pre-rendering and server-side-rendering.",
         workExp2:"The site draws on a custom Express.js server in order to interface with the Facebook Graph API to retrieve recent posts from the business Facebook account. The site is deployed to Heroku using the Heroku CLI. The full list of technologies used also includes React Helmet, Material UI, Axios, Body Parser, React Bootstrap, Dotenv and Nodemailer.",
         workDuties:null,
-        icon:"/images/clientLogos/icon/ftl_icon.png"
+        icon:"/images/clientLogos/icon/ftl_icon.png",
+        logoSRC:"/images/clientLogos/find-the-lead-logo.png"
+
     },
     {
         heading:"Fitt AF",
@@ -68,7 +70,8 @@ const itemsList = [
         workExp1:"Creation of a new website due to a company change in direction. This simple sales website needed to look great on mobile above all else. I was responsible for the entire UI Design and implementation. I created initial design wireframes and mockups before beginning development.",
         workExp2:"This site was built using Ejs template partials served by a custom Express.js server. Other technologies include Lodash, Body Parser, Bootstrap, Dotenv and Vanilla JS.",
         workDuties:null,
-        icon:"/images/clientLogos/icon/fittaf_icon.png"
+        icon:"/images/clientLogos/icon/fittaf_icon.png",
+        logoSRC:"/images/clientLogos/FittAF_Logo.png"
     },
     {
         heading:"React Note App",
@@ -119,6 +122,7 @@ const itemsList = [
         workExp2:null,
         workDuties:null,
         icon:"/images/clientLogos/icon/af_icon.png"
+    
     },
     {
         heading:"Vox Pops International",
@@ -136,7 +140,8 @@ const itemsList = [
         workExp1:"During my time at VPI I have led ongoing website optimisation , working with designers and third party developers. The VPI website is built using Wordpress and a combination of plugins including Elementor, Advanced Custom Fields, LiteSpeed Cache, WP-SCSS and more.",
         workExp2:"Working on this website has given me experience in performance optimisation, UX testing, design implementation & collaboration. I have also made adjustments to the Wordpress core using basic PHP to facilitate custom post types.",
         workDuties:["Managed all digital channels including SEM, content, CRM, email marketing, social, integrated analytics and PPC.", "Managed a team of 2, responsible for sales and marketing.", "In 1 year, increased average monthly website traffic by 32%, user dwell time by 38%, PPC conversions by 11.3%, organic conversions by 9%, search rankings by 9%. Decrease in bounce rates by 12%.", "Managed successful tender applications for the BBC World Service supplier list and Money Advice Service.", "Promoted from Marketing Executive to Digital Marketing Manager within one year.", "End of year review showed an increase in website enquiries by 35% and total amount invoiced by 24%."],
-        icon:"/images/clientLogos/icon/vpi_icon.png"
+        icon:"/images/clientLogos/icon/vpi_icon.png",
+        logoSRC:"/images/clientLogos/VPI_logo_small.png"
 
     },
     {
@@ -155,7 +160,9 @@ const itemsList = [
         workExp1:null,
         workExp2:null,
         workDuties:null,
-        icon:"/images/clientLogos/icon/trn_icon.png"
+        icon:"/images/clientLogos/icon/trn_icon.png",
+        logoSRC:"/images/clientLogos/trn_logo.png"
+
     },
     {
         heading:"Solar South West",
@@ -173,7 +180,8 @@ const itemsList = [
         workExp1:null,
         workExp2:null,
         workDuties:["Employed by SSW to help the historically commercial contractor grow into the domestic market.", "I Managed digital channels including content marketing, PPC, paid social, email marketing and CRM.", "Primary focus  on SEO. I improved rankings of 10 target keywords from an average position of 3.7 to 2.7.  This resulted in an overall website traffic increase of 400%."],
-        icon:"/images/clientLogos/icon/ssw_icon.png"
+        icon:"/images/clientLogos/icon/ssw_icon.png",
+        logoSRC:"/images/clientLogos/ssw_logo.png"
     },
 ]
 

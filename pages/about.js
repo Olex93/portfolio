@@ -133,8 +133,7 @@ export default function about(props) {
     },
     boundary:{
       height:"100%"
-    },
-    
+    }
 }
   const textLength = React.useState(99)
 

@@ -13,6 +13,7 @@ export default function postBlock(props){
             margin:"40px 10px",
             borderRadius:"2px",
             boxShadow:`12px 12px 15px -10px ${props.color.darkBG}`,
+            overflow:"hidden"
           },
           cardLeft:{
             width:"25%",
@@ -20,7 +21,8 @@ export default function postBlock(props){
             justifyContent:"center",
             borderWidth:"0 2px 0 0",
             borderStyle:"solid",
-            borderColor:props.color.darkBG
+            borderColor:props.color.darkBG,
+            backgroundColor:props.color.lightBG,
           },
           cardLeft2:{
             width:"0",
@@ -67,7 +69,7 @@ export default function postBlock(props){
           }, 
           pillText:{
             fontSize:"1rem",
-            color:props.color.darkBG,
+            color:props.color.textColor,
             padding:0
           },
           subHeading:{
@@ -76,6 +78,20 @@ export default function postBlock(props){
             fontWeight:"400",
             margin:"0",
             fontSize:"1rem"
+          },
+          button:{
+            backgroundColor:props.color.lightBG,
+            border:`2px solid ${props.color.highlightColor}`,
+            margin:"5px 0",
+            padding:"5px 10px",
+            fontSize:"15px",
+            fontWeight:"700",
+            borderRadius:"3px",
+            boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+            cursor: "pointer",
+          },
+          buttonLink:{
+            color:props.color.textColor
           }
     }
     const [expanded, setExpanded] = React.useState(false)
@@ -97,7 +113,7 @@ export default function postBlock(props){
         <motion.div layout style={styles.cardContainer}>
 
          <motion.div layout style={!expanded ? styles.cardLeft : styles.cardLeft2} >
-          <img style={styles.clientLogo} src={props.item.logoSRC}></img>
+            <img style={styles.clientLogo} src={props.item.logoSRC}></img>
         </motion.div>
 
         <motion.div layout style={!expanded ? styles.cardRight : styles.cardRight2}>
@@ -114,7 +130,7 @@ export default function postBlock(props){
             </ul>
            }
           <h4 style={styles.pillHeading}><div style={styles.cardPill}><span>{props.item.type}</span></div></h4>
-          <button onClick={expand}>{!expanded ? "Expand" : "Close"}</button>
+          <button style={styles.button} onClick={expand}><span style={styles.buttonLink}>{!expanded ? "Expand" : "Close"}</span></button>
         </motion.div>
 
       </motion.div>
