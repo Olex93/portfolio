@@ -53,7 +53,7 @@ export default function about(props) {
       height:"600px",
       marginBottom:"-370px",
       marginLeft:"0",
-      paddingLeft:"40px",
+      paddingLeft:"20px",
       overflow:"visible"
     },
     heading:{
@@ -89,10 +89,10 @@ export default function about(props) {
       maxWidth:"700px"
     },
     fullWidthCol:{
-      width:"95%",
+      width:"100%",
+      padding:"0 20px",
       maxWidth:"550px",
       alignSelf:"center",
-      margin:"0 40px"
     },
     listItem:{
       color:props.color.highlightColor,
