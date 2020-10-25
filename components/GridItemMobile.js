@@ -46,6 +46,7 @@ export default function GridItem(props) {
             width:"40px",
             height:"40px",
             borderRadius:"50px",
+            border:`1px solid ${props.color.highlightColor}`,
             marginBottom:"10px",
             backgroundColor:props.color.textColor,
             alignSelf:"center"
@@ -115,7 +116,7 @@ export default function GridItem(props) {
                 layout
         >  
         <motion.div layout id={"div" + props.item.key} style={styles.topBar}>
-            <motion.img layout src={props.item.logoSRC} style={styles.logoIcon}></motion.img>
+            <motion.img layout src={props.item.icon} style={styles.logoIcon}></motion.img>
             <motion.h2 layout style={styles.heading} >{props.item.heading}</motion.h2>
         </motion.div>
         <div style={styles.imageDiv} />
