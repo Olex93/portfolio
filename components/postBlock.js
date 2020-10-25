@@ -109,14 +109,33 @@ export default function postBlock(props){
         }
     }
 
+  const [size, setSize] = React.useState([1]);
+  if (typeof window !== 'undefined') {
+
+    // setSize to window width based on useLayoutEffect//
+    React.useLayoutEffect(() => {
+      //function to be called to update size//
+      function updateWidth() {
+        setSize([window.innerWidth]);
+      }
+      //call function on resize//
+      window.addEventListener('resize', updateWidth);
+      updateWidth();
+      return () => window.removeEventListener('resize', updateWidth);
+      }, []);
+    }
+
     return(
         <motion.div layout style={styles.cardContainer}>
 
-         <motion.div layout style={!expanded ? styles.cardLeft : styles.cardLeft2} >
+         {size > 700 && <motion.div layout style={!expanded ? styles.cardLeft : styles.cardLeft2} >
             <img style={styles.clientLogo} src={props.item.logoSRC}></img>
-        </motion.div>
+        </motion.div>}
+        {size <= 700 && <motion.div layout style={styles.cardLeft2} >
+            <img style={styles.clientLogo} src={props.item.logoSRC}></img>
+        </motion.div>}
 
-        <motion.div layout style={!expanded ? styles.cardRight : styles.cardRight2}>
+        {size > 700 && <motion.div layout style={!expanded ? styles.cardRight : styles.cardRight2}>
           <h3  style={styles.cardHeading}>{props.item.heading}</h3>
           <i  style={styles.cardDates}>{props.item.date}</i>
           {props.item.workExp1 && <p  style={{color:props.color.textColor}}>{number === 50 ? props.item.workExp1.substring(0, number) + "..." : props.item.workExp1.substring(0, number)}</p>}
@@ -131,7 +150,24 @@ export default function postBlock(props){
            }
           <h4 style={styles.pillHeading}><div style={styles.cardPill}><span>{props.item.type}</span></div></h4>
           <button style={styles.button} onClick={expand}><span style={styles.buttonLink}>{!expanded ? "Expand" : "Close"}</span></button>
-        </motion.div>
+        </motion.div>}
+
+        {size <= 700 && <motion.div layout style={styles.cardRight2}>
+          <h3  style={styles.cardHeading}>{props.item.heading}</h3>
+          <i  style={styles.cardDates}>{props.item.date}</i>
+          {props.item.workExp1 && <p  style={{color:props.color.textColor}}>{number === 50 ? props.item.workExp1.substring(0, number) + "..." : props.item.workExp1.substring(0, number)}</p>}
+          {!props.item.workExp1 && <p  style={{color:props.color.textColor}}>{number === 50 ? props.item.text.substring(0, number) + "..." : props.item.text.substring(0, number)}</p>}
+          {props.item.workExp2 && expanded && <p style={{color:props.color.textColor}}>{props.item.workExp2}</p>}
+          {expanded && 
+            <ul>
+            {props.item.workDuties && props.item.workDuties.map((item, index) => (
+                                <li style={{color:props.color.textColor}} id={index}>{item}</li>
+                            ))}
+            </ul>
+           }
+          <h4 style={styles.pillHeading}><div style={styles.cardPill}><span>{props.item.type}</span></div></h4>
+          <button style={styles.button} onClick={expand}><span style={styles.buttonLink}>{!expanded ? "Expand" : "Close"}</span></button>
+        </motion.div>}
 
       </motion.div>
     )
