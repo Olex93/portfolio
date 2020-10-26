@@ -228,7 +228,7 @@ export default function about(props) {
         <motion.button
                 style={styles.button}
                 whileHover={{scale:1.2}}
-              ><Link href="about"><a style={styles.buttonLink}>About Me</a></Link>
+              ><Link href="work"><a style={styles.buttonLink}>My Work</a></Link>
               </motion.button>
               <motion.button
                 style={styles.button}
