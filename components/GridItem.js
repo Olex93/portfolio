@@ -37,6 +37,10 @@ export default function GridItem(props) {
             boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
             cursor: "pointer"
         },
+        blankLink:{
+            color:props.color.textColor,
+            textDecoration:"none"
+          }
     }
     const itemText = props.item.text.substring(0,100) + "...";
 
@@ -53,7 +57,7 @@ export default function GridItem(props) {
                 }}
         >   
         <div style={styles.imageDiv} />
-            <motion.h2 >{props.item.heading}</motion.h2>
+            <a style={styles.blankLink} target="blank" href={props.item.url}><motion.h2 >{props.item.heading}</motion.h2></a>
             <SpringDivider color={props.color} width={"90%"} dividerBG={props.color.lightBG}/>
         <div style={styles.paragraph}>
             <motion.p >{itemText}</motion.p>

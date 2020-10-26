@@ -47,7 +47,7 @@ export default function GridItem(props) {
             height:"40px",
             borderRadius:"50px",
             border:`1px solid ${props.color.highlightColor}`,
-            marginBottom:"10px",
+            marginBottom:"15px",
             backgroundColor:props.color.textColor,
             alignSelf:"center"
         },
@@ -59,10 +59,13 @@ export default function GridItem(props) {
             alignContent:"center",
         },
         heading:{
-            marginLeft:"15px"
+            margin:"-15px 0 0 15px"
         },
         date:{
-            fontStyle:"italic"
+            fontStyle:"italic",
+            padding:0,
+            margin:0,
+            margin:"0 0 0 15px"
         },
         subHeading:{
             color:props.color.textColor,
@@ -82,7 +85,18 @@ export default function GridItem(props) {
             display:"none"
         },
         shownContent:{
-            color:props.color.textColor
+            color:props.color.textColor,
+            marginTop:"30px"
+        },
+        blockHeading:{
+            padding:0,
+            margin:"0 0 -10px 0",
+            fontSize:"17px",
+            fontWeight:"600"
+        },
+        unstyledLink:{
+            color:props.color.textColor, 
+            textDecoration:"none"
         }
     }
 
@@ -116,15 +130,18 @@ export default function GridItem(props) {
                 layout
         >  
         <motion.div layout id={"div" + props.item.key} style={styles.topBar}>
-            <motion.img layout src={props.item.icon} style={styles.logoIcon}></motion.img>
-            <motion.h2 layout style={styles.heading} >{props.item.heading}</motion.h2>
+        <motion.img layout src={props.item.icon} style={styles.logoIcon} />
+            <div>
+                <motion.h2 layout style={styles.heading} >{props.item.heading}</motion.h2>
+                <motion.p style={styles.date}>{props.item.date}</motion.p>
+            </div>
         </motion.div>
         <div style={styles.imageDiv} />
             <SpringDivider color={props.color} width={"100%"} dividerBG={props.color.backgroundColor}/>
         <div style={styles.paragraph}>
-            <motion.p style={styles.date}>{props.item.date}</motion.p>
+        <motion.p style={styles.blockHeading}>{props.item.subheading}</motion.p>
             <motion.p >{number === 100 ? props.item.text.substring(0, number) + "..." : props.item.text.substring(0, number)}</motion.p>
-            {expanded && <motion.p>{props.item.url}</motion.p>}
+            {expanded && props.item.url && <motion.button whileHover={{scale:1.2}} style={styles.button}><a style={styles.unstyledLink} href={props.item.url} target="blank">View Site</a></motion.button>}
             <div style={!expanded ? styles.hiddenContent : styles.shownContent}>
                 <p style={styles.subHeading}><i style={styles.headingSpan}>Full list of technologies:</i></p>
                 <ul style={styles.list}>
@@ -134,8 +151,6 @@ export default function GridItem(props) {
                     }
                 </ul>
             </div>
-
-
             <motion.button
             whileHover={{
                 scale: 1.2,

@@ -173,7 +173,7 @@ const itemsList = [
         type:"Employed",
         tags:["Wordpress", "X Theme", "Cornerstone", "Vanilla JS", "CSS", "Yoast"],
         date:"January 2017 - October 2017",
-        image:"url(/images/vpi_homepage.png)",
+        image:"url(/images/ssw_homepage.png)",
         organisation:"Award Winning Solar Panel & Energy Storage Contractors",
         url:"https://www.solarsouthwest.co.uk",
         codeSandbox:null,

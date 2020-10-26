@@ -6,6 +6,7 @@ import itemsList from "../components/ItemsList"
 import SpringDivider from "../components/SpringDivider"
 import Lightbox from "../components/Lightbox"
 import ColorSelect from "../components/colorSelect"
+import Link from 'next/link'
 
 
 export default function work(props) {
@@ -89,6 +90,21 @@ export default function work(props) {
                 color:"rgb(34,44,52)",
                 fontSize:'60px',
                 padding:"40px 0"
+              },
+              button:{
+                backgroundColor:props.color.backgroundColor,
+                border:`2px solid ${props.color.highlightColor}`,
+                margin:"50px 10px 100px",
+                padding:"5px 10px",
+                fontSize:"18px",
+                fontWeight:"700",
+                borderRadius:"3px",
+                boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+                cursor: "pointer",
+              },
+              buttonLink:{
+                color:props.color.textColor,
+                textDecoration:"none"
               }
         }
     
@@ -152,13 +168,12 @@ export default function work(props) {
  
 
     return (
-        <div>
+        <motion.div>
         <div style={styles.headingDiv}>
             <motion.h1 style={styles.heading}>My Work</motion.h1>
         </div>
         <div  style={styles.mobileBody}>
             <div style={{paddingTop:"80px"}}>
-                <h2 style={styles.filterHeading}>Venture:</h2>
                 <motion.button 
                     id="all" 
                     style={allButton ? styles.GridButtonFill : styles.GridButton}
@@ -197,9 +212,19 @@ export default function work(props) {
                             </motion.div>
                         ))}
             </motion.ul>
+            <motion.button
+                style={styles.button}
+                whileHover={{scale:1.2}}
+              ><Link href="about"><a style={styles.buttonLink}>About Me</a></Link>
+              </motion.button>
+              <motion.button
+                style={styles.button}
+                whileHover={{scale:1.2}}
+              ><Link href="contact"><a style={styles.buttonLink}>Contact Me</a></Link>
+              </motion.button>
             </div>
         </div>
-        </div>
+        </motion.div>
     );
     }
 

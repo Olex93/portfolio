@@ -169,14 +169,13 @@ export default function about(props) {
             <li style={styles.listItem}><a style={styles.link} href="#famSof">Familliar Software</a></li>
             <li style={styles.listItem}><a style={styles.link} href="#profSum">Proffessional Summary</a></li>
             <li style={styles.listItem}><a style={styles.link} href="#workExp">Work Experience</a></li>
-            <li style={styles.listItem}><a style={styles.link} href="#achievements">Key Achievements</a></li>
             <li style={styles.listItem}><a style={styles.link} href="#training">Training</a></li>
           </ul>
           </div>
           <div style={size > 1120 ? styles.rightCol : styles.fullWidthCol}>
           {size > 1120 && <img src="/images/meWalking.svg" style={styles.titleImg} onerror="this.onerror=null; this.src='/images/meWalking.jpg'" />}
             <h2 id="about" style={styles.headings}>A bit about me</h2>
-            <p style={styles.content}>Hi, I’m Alex. I’m a <strong>full stack</strong> javascript developer. I have a particular passion for the front-end. In my eyes, <strong>simplicity</strong> and <strong>usability</strong> trump flair every time. </p>
+            <p style={styles.content}>Hi, I’m Alex. I’m a <strong>full stack</strong> javascript developer. I've been working on websites for over 3 years and have a particular passion for the front-end. In my eyes, <strong>simplicity</strong> and <strong>usability</strong> trump flair every time. </p>
             <p style={styles.content}>I’m also an outdoors person. I love to cook. I’m a keen writer; in the process of writing my own novel. I live through my work and love to learn. I miss festivals. I don’t know what I would do without my partner or my friends.</p>
             <h2  id="famSof" style={styles.headings}>Familliar software</h2>
             <Carousel defaultControlsConfig={{nextButtonClassName: 'carouselNext'}} autoplay={true} wrapAround={true} slidesToShow={1} renderBottomCenterControls={null} renderCenterLeftControls={null} >
@@ -203,10 +202,10 @@ export default function about(props) {
             </motion.div>
             </AnimateSharedLayout>
 
-            
-
-            <h2  id="achievements" style={styles.headings}>Key Achievements</h2>
             <h2  id="training" style={styles.headings}>Training</h2>
+            <p style={styles.content}>I started learning the basics of web development in early 2017 by researching and completing online courses. By 2018, I had a good understanding of HTML, CSS and Wordpress, as well as basic Javascript. I began using these skills in my marketing role to optimise Wordpress websites.</p>
+            <p style={styles.content}>Starting from early 2019, frustrated by my reliance on developers to complete more complex tasks, I decided to take my skills to the next level.</p>
+            <p style={styles.content}>I completed a course on Udemy: 'The complete 2019 (now 2020) web development bootcamp'. The living course contains over 54 hours of video content and 469 lectures, which introduced me to many of the technologies listed above. The online lessons were re-enforced by completing 22 example projects, some of which I've included in this portfolio.</p>
           </div>
         </div>
       </motion.div>

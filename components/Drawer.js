@@ -77,7 +77,8 @@ export default function CustomDrawer(props) {
     },
     contactSection:{
       width:"100%",
-      padding:"20px"
+      padding:"40px 20px 20px",
+      backgroundColor:props.color.lightBG
     },
     contactHeading:{
       fontSize:"17px",

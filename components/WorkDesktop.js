@@ -217,7 +217,6 @@ export default function work(props) {
         </div>
         <div  style={size > 991 ? styles.paddedBody : styles.mobileBody}>
             <div style={{paddingTop:"80px"}}>
-                <h2 style={styles.filterHeading}>Venture:</h2>
                 <motion.button 
                     id="all" 
                     style={allButton ? styles.GridButtonFill : styles.GridButton}
