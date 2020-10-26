@@ -38,7 +38,7 @@ function ContactForm() {
 
     function sendData(e){
         e.preventDefault();    
-        // axios.post('https://findthelead.herokuapp.com/contact',{contact})
+        // axios.post('https://afportfolio.herokuapp.com/contact',{contact})
         axios.post(ContactAPI, {contact})
         .then(response => {
          console.log(response);
@@ -49,6 +49,7 @@ function ContactForm() {
         setContact({
             fName: "",
             lName: "",
+            email:"",
             message: ""
           });
           setFormSent(true);
