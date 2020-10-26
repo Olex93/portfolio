@@ -3,6 +3,7 @@ import ContactForm from "../components/ContactForm"
 import { motion } from "framer-motion";
 import HomeDesktop from "../components/HomeDesktop"
 
+
 export default function Contact(props) {
 
   const [colorWord, setColorWord] = React.useState("orange")
@@ -61,7 +62,11 @@ export default function Contact(props) {
  
 
     return (
-      <>
+      <div>
+      <Head>
+        <title>Alex Foster - Contact Me</title>
+        <meta name="description" content="Get in touch with me, Alex Foster, by filling out this contact form." />
+      </Head>
       {size < 991 ?
       <div style={styles.mobileBody}>
         <div style={styles.headingDiv}>
@@ -73,6 +78,6 @@ export default function Contact(props) {
       </div>
       :
       <HomeDesktop color={props.color} changeColor={props.color.changeColor} />}
-      </>
+      </div>
     )
   }
