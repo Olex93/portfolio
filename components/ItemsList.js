@@ -147,7 +147,7 @@ const itemsList = [
     {
         heading:"TRN Electrical",
         subheading:"Wordpress & X-Theme Custom Website",
-        text:"Following my employment at Solar South West, I was asked by the company director if I could re-produce their existing website for a new brand. I set up hosting and built out the website from scratch, rather than copying over, due to outdated software. I stuck to Wordpress and the X Theme as it would leave employees with a level of control. ",
+        text:"Following my employment at Solar South West, I was asked by the company director if I could re-produce their existing website for a new brand. I set up hosting and built out the website from scratch, rather than copying over, due to outdated software. I stuck to Wordpress and the X Theme as it would leave employees with a level of control. This site has not been maintained and may now appear broken / buggy.",
         key:9,
         category:"corporate",
         type:"Freelance",
@@ -167,7 +167,7 @@ const itemsList = [
     {
         heading:"Solar South West",
         subheading:"Wordpress & X-Theme Website",
-        text:"Whilst employed at Solar South West I was involved in basic Wordpress design adjustments using Cornerstone. I was responsible for SEO optimisation and site-structure modification, as well as some basic widget production.",
+        text:"Whilst employed at Solar South West I was involved in basic Wordpress design adjustments using Cornerstone. I was responsible for SEO optimisation and site-structure modification, as well as some basic widget production. This site has not been maintained and may now appear broken / buggy.",
         key:10,
         category:"corporate",
         type:"Employed",
