@@ -134,6 +134,21 @@ export default function about(props) {
     },
     boundary:{
       height:"100%"
+    },
+    button:{
+      backgroundColor:props.color.backgroundColor,
+      border:`2px solid ${props.color.highlightColor}`,
+      margin:"50px 10px 100px",
+      padding:"5px 10px",
+      fontSize:"18px",
+      fontWeight:"700",
+      borderRadius:"3px",
+      boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+      cursor: "pointer",
+    },
+    buttonLink:{
+      color:props.color.textColor,
+      textDecoration:"none"
     }
 }
   const textLength = React.useState(99)
@@ -209,6 +224,17 @@ export default function about(props) {
             <p style={styles.content}>I completed a course on Udemy: 'The complete 2019 (now 2020) web development bootcamp'. The living course contains over 54 hours of video content and 469 lectures, which introduced me to many of the technologies listed above. The online lessons were re-enforced by completing 22 example projects, some of which I've included in this portfolio.</p>
           </div>
         </div>
+
+        <motion.button
+                style={styles.button}
+                whileHover={{scale:1.2}}
+              ><Link href="about"><a style={styles.buttonLink}>About Me</a></Link>
+              </motion.button>
+              <motion.button
+                style={styles.button}
+                whileHover={{scale:1.2}}
+              ><Link href="contact"><a style={styles.buttonLink}>Contact Me</a></Link>
+              </motion.button>
       </motion.div>
     </div>
 
