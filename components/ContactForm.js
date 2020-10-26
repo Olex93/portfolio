@@ -56,7 +56,7 @@ function ContactForm() {
 
     
     return (
-      <div>
+      <div style={{height:"100vh"}}>
        <div>
         <h1>Write to us</h1>
         <form >
