@@ -25,6 +25,10 @@ export default function work(props) {
 
     return (
         <div>
+          <Head>
+             <title>Websites built by Alex Foster</title>
+             <meta name="description" content="Here are a few websites built by me, Alex Foster." />
+          </Head>
            {size > 650 ? <WorkDesktop color={props.color} changeColor={props.changeColor}/> : <WorkMobile color={props.color} changeColor={props.changeColor}/> }
         </div>
     );

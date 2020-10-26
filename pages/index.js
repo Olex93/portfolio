@@ -28,6 +28,11 @@ export default function Home(props) {
 
 
       return(
+        <div>
+          <Head>
+             <title>Alex Foster - Web Developer Portfolio</title>
+             <meta name="description" content="This is Alex Foster's web development portfolio, showcasing some recent work and proffessional information." />
+          </Head>
         <motion.div>
           {size > 991 &&
           <HomeDesktop color={props.color} changeColor={props.changeColor} customTheme={props.customTheme}/>
@@ -36,6 +41,7 @@ export default function Home(props) {
           <HomeMobile color={props.color} customTheme={props.customTheme} changeColor={props.changeColor}/>}
 
         </motion.div>
+        </div>
       )
 }
   

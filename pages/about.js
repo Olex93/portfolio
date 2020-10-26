@@ -177,6 +177,7 @@ export default function about(props) {
     <div>
       <Head>
         <title>Alex Foster - About Me</title>
+        <meta name="description" content="About me, Alex Foster. Proffesional and personal information, such as work experience and proffessional training." />
       </Head>
       <motion.div style={size > 991 ? styles.CustomBody : styles.mobileBody}>
         <div style={size > 991 ? styles.headingDiv : styles.headingDivMobile}>
