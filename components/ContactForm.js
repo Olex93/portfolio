@@ -59,7 +59,7 @@ function ContactForm() {
       <div style={{height:"100vh"}}>
        <div>
         <h1>Write to us</h1>
-        <form >
+        <form style={{paddingLeft:"280px"}}>
         <p >Get in touch if you'd like to have a chat about any of the services offered by Find The Lead.</p>
         <label for="fName">First Name</label>
           <input
