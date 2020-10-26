@@ -30,7 +30,6 @@ app.prepare().then(() => {
         const firstName = req.body.contact.fName;
         const lastName = req.body.contact.lName;
         const message = req.body.contact.message;
-        const service = req.body.contact.service;
         const email = req.body.contact.email;
         const enquiryMail = firstName + " " + lastName + " " + "has just sent the following message from my portfolio: " + message + "'. Get back to them by replying to this email or contacting the at: " + email + ".";
         const user = process.env.GMAIL_ACCOUNT;

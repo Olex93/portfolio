@@ -20,8 +20,7 @@ function ContactForm() {
       fName: "",
       lName: "",
       email:"",
-      message: "",
-      service:""
+      message: ""
     });
   
     function handleChange(event) {
@@ -50,8 +49,7 @@ function ContactForm() {
         setContact({
             fName: "",
             lName: "",
-            message: "",
-            service:""
+            message: ""
           });
           setFormSent(true);
         }
