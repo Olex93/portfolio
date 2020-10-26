@@ -1,4 +1,5 @@
 import React from "react"
+import Head from 'next/head';
 import ContactForm from "../components/ContactForm"
 import { motion } from "framer-motion";
 import HomeDesktop from "../components/HomeDesktop"
