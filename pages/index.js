@@ -10,7 +10,6 @@ import HomeMobile from "../components/HomeMobile"
 export default function Home(props) {
   const [size, setSize] = React.useState([1]);
 
-
   if (typeof window !== 'undefined') {
 
     // setSize to window width based on useLayoutEffect//
