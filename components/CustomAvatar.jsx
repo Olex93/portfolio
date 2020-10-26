@@ -32,7 +32,7 @@ export default function CustomAvatar(props){
                 duration: .2
             }} 
         }>
-            <Avatar className={classes.customAvatar} div style={{border: `2px solid ${props.highlightColor}`, backgroundColor:props.backgroundColor}} circle src={"/images/Head.png"}/>
+            <Avatar className={classes.customAvatar} div style={{border: `2px solid ${props.highlightColor}`, backgroundColor:props.backgroundColor}} circle src="/images/head.png"/>
         </motion.div>
     )
 }
