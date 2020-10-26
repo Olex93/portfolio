@@ -27,10 +27,10 @@ export default function work(props) {
     const styles = {
             mobileBody:{
                 margin:0,
-                padding:0,
+                padding:"0 0 150px 0",
                 overflow:"hidden",
                 minHeight:"100vh",
-                textAlign:"center"
+                textAlign:"center",
             },
             gridContainer:{
                 alignItems:"center",
