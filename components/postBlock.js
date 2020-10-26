@@ -51,6 +51,14 @@ export default function postBlock(props){
             padding:0,
             margin:0
           },
+          cardHeadingMobile:{
+            color:props.color.textColor,
+            fontWeight:"600",
+            letterSpacing:"0.7px",
+            fontSize:"1.1rem",
+            padding:"15px 0 0 0",
+            margin:0
+          },
           cardDates:{
             color:props.color.textColor
           },
@@ -66,7 +74,7 @@ export default function postBlock(props){
             position:'absolute',
             top:"15px",
             right:"15px"
-          }, 
+          },
           pillText:{
             fontSize:"1rem",
             color:props.color.textColor,
@@ -153,7 +161,7 @@ export default function postBlock(props){
         </motion.div>}
 
         {size <= 700 && <motion.div layout style={styles.cardRight2}>
-          <h3  style={styles.cardHeading}>{props.item.heading}</h3>
+          <h3  style={size > 700 ? styles.cardHeading : styles.cardHeadingMobile}>{props.item.heading}</h3>
           <i  style={styles.cardDates}>{props.item.date}</i>
           {props.item.workExp1 && <p  style={{color:props.color.textColor}}>{number === 50 ? props.item.workExp1.substring(0, number) + "..." : props.item.workExp1.substring(0, number)}</p>}
           {!props.item.workExp1 && <p  style={{color:props.color.textColor}}>{number === 50 ? props.item.text.substring(0, number) + "..." : props.item.text.substring(0, number)}</p>}

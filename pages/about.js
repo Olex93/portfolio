@@ -35,6 +35,7 @@ export default function about(props) {
     mobileBody:{
       margin:0,
       backgroundColor:props.color.backgroundColor,
+      paddingBottom:"150px"
     },
     headingDiv:{
       backgroundImage:`url('/images/${colorWord}Blob.svg')`,
