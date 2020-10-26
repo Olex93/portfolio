@@ -112,56 +112,6 @@ export default function CustomDrawer(props) {
                 <Link href="/work"><a><ListItemText style={customStyles.textColor} primary={"My Work"} /></a></Link>
               </ListItem>
           </List>
-        <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG}/>
-          <List
-            component="nav"
-            className={classes.nestedRoot}
-          >
-            <ListItem button onClick={handleClick}>
-              <ListItemIcon>
-                <InboxIcon style={customStyles.textColor} />
-              </ListItemIcon>
-              <ListItemText style={customStyles.textColor} primary="Work Experience" />
-              {open ? <ExpandLess style={customStyles.highlightColor} /> : <ExpandMore style={customStyles.highlightColor}/>}
-            </ListItem>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItem button className={classes.nested}>
-                  <ListItemIcon>
-                    <StarBorder style={customStyles.textColor} />
-                  </ListItemIcon>
-                  <ListItemText style={customStyles.textColor} primary="Development" />
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                  <ListItemIcon>
-                    <StarBorder style={customStyles.textColor} />
-                  </ListItemIcon>
-                  <ListItemText style={customStyles.textColor} primary="Design" />
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                  <ListItemIcon>
-                    <StarBorder style={customStyles.textColor} />
-                  </ListItemIcon>
-                  <ListItemText style={customStyles.textColor} primary="SEO" />
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                  <ListItemIcon>
-                    <StarBorder style={customStyles.textColor} />
-                  </ListItemIcon>
-                  <ListItemText style={customStyles.textColor} primary="Analytics" />
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                  <ListItemIcon>
-                    <StarBorder style={customStyles.textColor}/>
-                  </ListItemIcon>
-                  <ListItemText style={customStyles.textColor} primary="Marketing Automation" />
-                </ListItem>
-              </List>
-            </Collapse>
-          </List>
-          {/* Replace this with significant achievements testimonial carousel */}
-          {shown ?  
-          <CustomAvatar backgroundColor={props.color.lightBG} highlightColor={props.color.highlightColor} /> : null}
           </div>
         </Drawer>
     </div>
