@@ -50,6 +50,7 @@ export default function CustomDrawer(props) {
          <ListItem><Link href="/"><Button><a>Home</a></Button></Link></ListItem>
         <ListItem><Link href="/about"><Button><a>About Me</a></Button></Link></ListItem>
         <ListItem><Link href="/work"><Button><a>My Work</a></Button></Link></ListItem>
+        <ListItem><Link href="/contact"><Button><a>Contact</a></Button></Link></ListItem>
       </List>
       
     </div>

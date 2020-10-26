@@ -16,11 +16,13 @@ import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
 import theme from "./theme"
 import Link from 'next/link'
+import ContactForm from "../components/ContactForm"
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    overflow:"hidden"
   },
   drawer: {
     width: drawerWidth,
@@ -65,22 +67,24 @@ export default function CustomDrawer(props) {
   };
 
   const customStyles = {
-    textColor: {
-      color: props.color.textColor
-    },
-    lightBG:{
-      backgroundColor: props.color.lightBG
-    },
-    darkBG:{
-      backgroundColor: props.color.darkBG
-    },
-    highlightColor:{
-      color:props.color.highlightColor
+    menuLink:{
+      color:props.color.textColor,
     },
     divBG:{
       backgroundColor:props.color.lightBG,
       height:"100vh",
       width:"240px"
+    },
+    contactSection:{
+      width:"100%",
+      padding:"20px"
+    },
+    contactHeading:{
+      fontSize:"17px",
+      fontWeight:"400",
+      color:props.color.textColor,
+      letterSpacing:"1.2px",
+      marginTop:"5px"
     }
   }
   
@@ -104,14 +108,19 @@ export default function CustomDrawer(props) {
         <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG}/>
           <List>
               <ListItem button>
-                <ListItemIcon><InboxIcon style={customStyles.textColor}/></ListItemIcon>
-                <Link href="/about"><a><ListItemText style={customStyles.textColor} primary={"About Me"} /></a></Link>
+                <ListItemIcon><InboxIcon style={{color:props.color.textColor}}/></ListItemIcon>
+                <Link  href="/about"><a style={customStyles.menuLink}><ListItemText primary={"About Me"} /></a></Link>
               </ListItem>
               <ListItem button>
-                <ListItemIcon><InboxIcon style={customStyles.textColor}/></ListItemIcon>
-                <Link href="/work"><a><ListItemText style={customStyles.textColor} primary={"My Work"} /></a></Link>
+                <ListItemIcon><InboxIcon style={{color:props.color.textColor}}/></ListItemIcon>
+                <Link href="/work"><a style={customStyles.menuLink}><ListItemText primary={"My Work"} /></a></Link>
               </ListItem>
           </List>
+          <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG}/>
+          <div style={customStyles.contactSection}>
+            <p style={customStyles.contactHeading}>Write to me</p>
+            <ContactForm color={props.color} changeColor={props.changeColor}/>
+          </div>
           </div>
         </Drawer>
     </div>

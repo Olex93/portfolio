@@ -2,18 +2,37 @@ import React from 'react';
 import axios from 'axios';
 const PORT = process.env.PORT || 3000;
 const ContactAPI = 'https://afportfolio.herokuapp.com/contact';
+import { motion } from "framer-motion";
 
 
-
-function ContactForm() {
+function ContactForm(props) {
     const [formSent, setFormSent] = React.useState(false);
-    const inputStyle= {
-        border:"none",
+    const inputStyle = {
+        border:`1px solid ${props.color.highlightColor}`,
         display:"block",
         padding:"5px",
-        borderRadius:"3px",
+        borderRadius:"2px",
         margin:"10px auto",
-        width:"350px"
+        width:"100%",
+        fontFamily:"Roboto",
+        fontSize:"15px",
+    }
+    const button = {
+        backgroundColor:props.color.lightBG,
+        border:`2px solid ${props.color.highlightColor}`,
+        margin:"5px 0",
+        padding:"5px 10px",
+        fontSize:"15px",
+        fontWeight:"700",
+        borderRadius:"3px",
+        boxShadow:`2px 2px 12px -6px ${props.color.darkBG}`,
+        cursor: "pointer",
+        color:props.color.textColor,      
+    }
+
+    const formDiv = {
+      maxWidth:"350px",
+      margin:"auto"
     }
     
     const [contact, setContact] = React.useState({
@@ -57,12 +76,9 @@ function ContactForm() {
 
     
     return (
-      <div style={{height:"100vh"}}>
+      <div>
        <div>
-        <h1>Write to us</h1>
-        <form style={{paddingLeft:"280px"}}>
-        <p >Get in touch if you'd like to have a chat about any of the services offered by Find The Lead.</p>
-        <label for="fName">First Name</label>
+        <form style={formDiv}>
           <input
             style={inputStyle}
             onChange={handleChange}
@@ -71,7 +87,6 @@ function ContactForm() {
             placeholder="First Name"
             id="fName"
           />
-        <label for="lName" >Last Name</label>
           <input
             style={inputStyle}
             onChange={handleChange}
@@ -80,7 +95,6 @@ function ContactForm() {
             placeholder="Last Name"
             id="lName"
           />
-          <label for="email" >Email address</label>
           <input
             style={inputStyle}
             onChange={handleChange}
@@ -89,7 +103,6 @@ function ContactForm() {
             placeholder="Email address"
             id="email"
           />
-        <label for="yourMessage" >Your message.</label>
         <textarea
             style={inputStyle}
             onChange={handleChange}
@@ -99,7 +112,7 @@ function ContactForm() {
             rows="4"
             id="yourMessage"
           />
-          <button onClick={sendData}>Submit</button>
+          <motion.button whileHover={{scale:1.2}} style={button} onClick={sendData}>Submit</motion.button>
         </form>
         </div>
       </div> 
