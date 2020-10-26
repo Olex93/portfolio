@@ -5,6 +5,7 @@ import classes from "../styles/about.module.css"
 import Carousel from 'nuka-carousel';
 import itemsList from "../components/ItemsList"
 import PostBlock from "../components/postBlock"
+import Link from 'next/link'
 
 
 
@@ -35,7 +36,7 @@ export default function about(props) {
     mobileBody:{
       margin:0,
       backgroundColor:props.color.backgroundColor,
-      paddingBottom:"150px"
+      paddingBottom:"50px"
     },
     headingDiv:{
       backgroundImage:`url('/images/${colorWord}Blob.svg')`,
@@ -149,6 +150,9 @@ export default function about(props) {
     buttonLink:{
       color:props.color.textColor,
       textDecoration:"none"
+    },
+    buttonContainer:{
+      textAlign:"center"
     }
 }
   const textLength = React.useState(99)
@@ -224,17 +228,18 @@ export default function about(props) {
             <p style={styles.content}>I completed a course on Udemy: 'The complete 2019 (now 2020) web development bootcamp'. The living course contains over 54 hours of video content and 469 lectures, which introduced me to many of the technologies listed above. The online lessons were re-enforced by completing 22 example projects, some of which I've included in this portfolio.</p>
           </div>
         </div>
-
-        <motion.button
+        <div style={styles.buttonContainer}>
+          <motion.button
                 style={styles.button}
                 whileHover={{scale:1.2}}
               ><Link href="work"><a style={styles.buttonLink}>My Work</a></Link>
               </motion.button>
-              <motion.button
+          <motion.button
                 style={styles.button}
                 whileHover={{scale:1.2}}
               ><Link href="contact"><a style={styles.buttonLink}>Contact Me</a></Link>
-              </motion.button>
+          </motion.button>
+        </div>
       </motion.div>
     </div>
 

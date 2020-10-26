@@ -108,14 +108,22 @@ export default function CustomDrawer(props) {
         <Link href="/"><a><CustomAvatar  backgroundColor={props.color.lightBG} highlightColor={props.color.highlightColor} /></a></Link>
         <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG}/>
           <List>
-              <ListItem button>
-                <ListItemIcon><InboxIcon style={{color:props.color.textColor}}/></ListItemIcon>
-                <Link  href="/about"><a style={customStyles.menuLink}><ListItemText primary={"About Me"} /></a></Link>
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon><InboxIcon style={{color:props.color.textColor}}/></ListItemIcon>
-                <Link href="/work"><a style={customStyles.menuLink}><ListItemText primary={"My Work"} /></a></Link>
-              </ListItem>
+              <Link  href="/about">
+                <a style={customStyles.menuLink}>
+                  <ListItem button>
+                    <ListItemIcon><InboxIcon style={{color:props.color.textColor}}/></ListItemIcon>
+                    <ListItemText primary={"About Me"} />
+                  </ListItem>
+                </a>
+              </Link>
+              <Link href="/work">
+                <a style={customStyles.menuLink}>
+                  <ListItem button>
+                    <ListItemIcon><InboxIcon style={{color:props.color.textColor}}/></ListItemIcon>
+                    <ListItemText primary={"My Work"} />
+                  </ListItem>
+                </a>
+              </Link>
           </List>
           <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG}/>
           <div style={customStyles.contactSection}>
