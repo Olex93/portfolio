@@ -100,7 +100,7 @@ export default function DesktopHome(props) {
           <div style={styles.innerBody}>
             <div>
               <h1 style={styles.customHeading}>Alex Foster</h1>
-              <h2 style={styles.customh2}>MERN Web Application Developer & UX Designer</h2>
+              <h2 style={styles.customh2}>Simply beautify websites & UI's</h2>
             </div>
             <div style={styles.flexGrid}>
             <motion.ul
