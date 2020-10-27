@@ -111,6 +111,8 @@ export default function Lightbox(props){
                     <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG} />
                     <div style={style.textDiv}>
                         <p style={style.subHeading}><i style={style.headingSpan}>Summary: </i>{props.item.text}</p>
+                        {props.item.text2 && <p style={style.subHeading}>{props.item.text2}</p>}
+                        {props.item.text3 && <p style={style.subHeading}>{props.item.text3}</p>}
                     </div>
                     <SpringDivider color={props.color} width={"80%"} dividerBG={props.color.lightBG} />
                     <div style={style.textDiv}>

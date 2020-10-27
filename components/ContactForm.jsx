@@ -41,7 +41,9 @@ function ContactForm(props) {
       email:"",
       message: ""
     });
-  
+
+    const [firstName, setFirstName] = React.useState("")
+    const message = "Hi " + firstName + ". Thanks for getting in touch. I'll get back to you as soon as i can!"
     function handleChange(event) {
       const { name, value } = event.target;
   
@@ -56,6 +58,7 @@ function ContactForm(props) {
 
 
     function sendData(e){
+        setFirstName(contact.fName)
         e.preventDefault();    
         // axios.post('https://afportfolio.herokuapp.com/contact',{contact})
         axios.post(ContactAPI, {contact})
@@ -77,6 +80,7 @@ function ContactForm(props) {
     
     return (
       <div>
+      {!formSent ?
        <div>
         <form style={formDiv}>
           <input
@@ -115,8 +119,14 @@ function ContactForm(props) {
           <motion.button whileHover={{scale:1.2}} style={button} onClick={sendData}>Submit</motion.button>
         </form>
         </div>
-      </div> 
-    );
+        :
+        <div> 
+          <p style={{color:props.color.textColor}}>{message}</p>
+          <motion.button whileHover={{scale:1.2}} style={button} onClick={() => setFormSent(false)}>Contact Again</motion.button>
+        </div>
+      }
+      </div>
+    )
   }
 
   export default ContactForm;

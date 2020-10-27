@@ -141,8 +141,16 @@ export default function GridItem(props) {
         <div style={styles.paragraph}>
         <motion.p style={styles.blockHeading}>{props.item.subheading}</motion.p>
             <motion.p >{number === 100 ? props.item.text.substring(0, number) + "..." : props.item.text.substring(0, number)}</motion.p>
+            {expanded && 
+                <>               
+                <motion.p >{props.item.text2}</motion.p>
+                <motion.p >{props.item.text3}</motion.p>
+                </>
+            }
             {expanded && props.item.url && <motion.button whileHover={{scale:1.2}} style={styles.button}><a style={styles.unstyledLink} href={props.item.url} target="blank">View Site</a></motion.button>}
+            {expanded && !props.item.url && props.item.codeSandbox && <motion.button whileHover={{scale:1.2}} style={styles.button}><a style={styles.unstyledLink} href={props.item.url} target="blank">View Sandbox</a></motion.button>}
             <div style={!expanded ? styles.hiddenContent : styles.shownContent}>
+
                 <p style={styles.subHeading}><i style={styles.headingSpan}>Full list of technologies:</i></p>
                 <ul style={styles.list}>
                     {props.item.tags.map((tag) => (
