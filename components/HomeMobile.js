@@ -145,7 +145,7 @@ export default function MobileHome(props) {
           <div style={styles.innerBody}>
             <div>
               <h1 style={size > 869 ? styles.customHeading : styles.mobileHeading}>Alex Foster</h1>
-              <h2 style={styles.customh2}>Simply beautify websites & UI's</h2>
+              <h2 style={styles.customh2}>Beautiful websites that seem simple and perform flawlessly</h2>
               <motion.button
                 style={styles.button}
                 whileHover={{scale:1.2}}
