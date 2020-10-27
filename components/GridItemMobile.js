@@ -150,7 +150,7 @@ export default function GridItem(props) {
                 </>
             }
             {expanded && props.item.url && <motion.button whileHover={{scale:1.2}} style={styles.button}><a style={styles.unstyledLink} href={props.item.url} target="blank">View Site</a></motion.button>}
-            {expanded && !props.item.url && props.item.codeSandbox && <motion.button whileHover={{scale:1.2}} style={styles.button}><a style={styles.unstyledLink} href={props.item.url} target="blank">View Sandbox</a></motion.button>}
+            {expanded && !props.item.url && props.item.codeSandbox && <motion.button whileHover={{scale:1.2}} style={styles.button}><a style={styles.unstyledLink} href={props.item.codeSandbox} target="blank">View Sandbox</a></motion.button>}
             <div style={!expanded ? styles.hiddenContent : styles.shownContent}>
 
                 <p style={styles.subHeading}><i style={styles.headingSpan}>Full list of technologies:</i></p>
