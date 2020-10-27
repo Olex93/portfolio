@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { motion } from "framer-motion";
+import { motion, AnimateSharedLayout } from "framer-motion";
 import GridItemMobile from "../components/GridItemMobile"
 import itemsList from "../components/ItemsList"
 import SpringDivider from "../components/SpringDivider"
@@ -168,9 +168,9 @@ export default function work(props) {
  
 
     return (
-        <motion.div>
+        <div >
         <div style={styles.headingDiv}>
-            <motion.h1 style={styles.heading}>My Work</motion.h1>
+            <h1 style={styles.heading}>My Work</h1>
         </div>
         <div  style={styles.mobileBody}>
             <div style={{paddingTop:"80px"}}>
@@ -197,7 +197,9 @@ export default function work(props) {
             <SpringDivider color={props.color} width={"10%"} dividerBG={props.color.backgroundColor}/>
             </div>
             <div style={styles.gridContainer}>
+            <AnimateSharedLayout>
             <motion.ul 
+                layout
                 style={styles.grid}
                 initial="hidden"
                 animate="visible"
@@ -212,6 +214,8 @@ export default function work(props) {
                             </motion.div>
                         ))}
             </motion.ul>
+            </AnimateSharedLayout>
+
             <motion.button
                 style={styles.button}
                 whileHover={{scale:1.2}}
@@ -224,7 +228,8 @@ export default function work(props) {
               </motion.button>
             </div>
         </div>
-        </motion.div>
+        </div>
+        
     );
     }
 
