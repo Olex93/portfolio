@@ -108,7 +108,7 @@ const itemsList = [
         image:"url(/images/js_simon_game.png)",
         organisation:"Self directed build",
         url:null,
-        codeSandbox:"https://3zyyp.csb.app/",
+        codeSandbox:"https://hi3z2.csb.app/",
         workExp1:null,
         workExp2:null,
         workDuties:null,
