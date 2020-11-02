@@ -104,7 +104,7 @@ const itemsList = [
         key:6,
         category:"personal",
         tags:["Javascript ES6", "HTML", "CSS"],
-        date:"November 2010",
+        date:"November 2020",
         image:"url(/images/js_simon_game.png)",
         organisation:"Self directed build",
         url:null,
