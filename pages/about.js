@@ -177,7 +177,7 @@ export default function about(props) {
     <div>
       <Head>
         <title>Alex Foster - About Me</title>
-        <meta name="description" content="About me, Alex Foster. Proffesional and personal information, such as work experience and proffessional training." />
+        <meta name="description" content="About me, Alex Foster. Professional and personal information, such as work experience and professional training." />
       </Head>
       <motion.div style={size > 991 ? styles.CustomBody : styles.mobileBody}>
         <div style={size > 991 ? styles.headingDiv : styles.headingDivMobile}>
@@ -188,7 +188,7 @@ export default function about(props) {
           <ul>  
             <li style={styles.listItem}><a style={styles.link} href="#about">About Me</a></li>
             <li style={styles.listItem}><a style={styles.link} href="#famSof">Familliar Software</a></li>
-            <li style={styles.listItem}><a style={styles.link} href="#profSum">Proffessional Summary</a></li>
+            <li style={styles.listItem}><a style={styles.link} href="#profSum">Professional Summary</a></li>
             <li style={styles.listItem}><a style={styles.link} href="#workExp">Work Experience</a></li>
             <li style={styles.listItem}><a style={styles.link} href="#training">Training</a></li>
           </ul>
@@ -205,7 +205,7 @@ export default function about(props) {
                   )
               }
               </Carousel>
-            <h2  id="profSum" style={styles.headings}>Proffessional Summary</h2>
+            <h2  id="profSum" style={styles.headings}>Professional Summary</h2>
             <p style={styles.content}>I believe that the best way to understand something is to build it. I find an immense amount of satisfaction in that. At uni, I wrote a dissertation that struggled with the concept of universal truth. I believe this is what drew me to development. <strong>To build something is to know it.</strong></p>
             <p style={styles.content}>I have worked as a developer both on a <strong>freelance</strong> basis and within various <strong>employed</strong> roles. Whilst employed, I have spent time designing and developing WordPress websites. On a freelance basis and more recently, I have built a number of websites using the <strong>MERN</strong> (Mongoose, Express, React, Node) stack, along with other notable technologies such as Next.js, Framer Motion, Material UI, Axios, Heroku and more. </p>
             <img src="/images/london_boat.jpg" style={styles.bodyImg} />
