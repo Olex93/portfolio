@@ -94,7 +94,7 @@ function MyApp({ Component, pageProps, router }) {
           <div style={{backgroundColor:color.backgroundColor}}>
           <Navigation color={color} changeColor={changeColor}/>
           <motion.div
-                transition={{ type: "spring", duration: 2}}
+                transition={{ type: "fade", duration: 0.3}}
                 key={router.route}
                 initial={{marginRight:"200px"}}
                 animate={{marginRight:"0px"}}
